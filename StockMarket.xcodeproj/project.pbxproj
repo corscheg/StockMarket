@@ -9,19 +9,39 @@
 /* Begin PBXBuildFile section */
 		0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325745C286E8ACA008DAF21 /* AppDelegate.swift */; };
 		0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325745E286E8ACA008DAF21 /* SceneDelegate.swift */; };
-		03257461286E8ACA008DAF21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03257460286E8ACA008DAF21 /* ViewController.swift */; };
 		03257466286E8ACB008DAF21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03257465286E8ACB008DAF21 /* Assets.xcassets */; };
 		03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03257471286E8CB0008DAF21 /* RootTabBar.swift */; };
+		034004402872D90700860348 /* ShareFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340043F2872D90600860348 /* ShareFetcher.swift */; };
+		0340044328731E7E00860348 /* SearchPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044228731E7E00860348 /* SearchPromptView.swift */; };
+		0340044628732BBA00860348 /* SearchFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044528732BBA00860348 /* SearchFoundView.swift */; };
+		0340044828732CB300860348 /* SearchNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044728732CB300860348 /* SearchNotFoundView.swift */; };
+		0340044A28732EE400860348 /* SearchInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044928732EE400860348 /* SearchInProgressView.swift */; };
+		0340044C2873303200860348 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044B2873303200860348 /* SearchState.swift */; };
+		0340044E2873308E00860348 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044D2873308E00860348 /* SearchPresenter.swift */; };
+		03F332CA2872C22D00E9F457 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03F332C92872C22D00E9F457 /* key.txt */; };
+		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
+		03F332CE2872C8C800E9F457 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CD2872C8C800E9F457 /* Share.swift */; };
+		03F332D12872C9CC00E9F457 /* TradingDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332D02872C9CC00E9F457 /* TradingDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03257459286E8ACA008DAF21 /* StockMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0325745C286E8ACA008DAF21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0325745E286E8ACA008DAF21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		03257460286E8ACA008DAF21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03257465286E8ACB008DAF21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0325746A286E8ACB008DAF21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03257471286E8CB0008DAF21 /* RootTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBar.swift; sourceTree = "<group>"; };
+		0340043F2872D90600860348 /* ShareFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFetcher.swift; sourceTree = "<group>"; };
+		0340044228731E7E00860348 /* SearchPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPromptView.swift; sourceTree = "<group>"; };
+		0340044528732BBA00860348 /* SearchFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoundView.swift; sourceTree = SOURCE_ROOT; };
+		0340044728732CB300860348 /* SearchNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNotFoundView.swift; sourceTree = "<group>"; };
+		0340044928732EE400860348 /* SearchInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInProgressView.swift; sourceTree = "<group>"; };
+		0340044B2873303200860348 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		0340044D2873308E00860348 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		03F332C92872C22D00E9F457 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
+		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		03F332CD2872C8C800E9F457 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		03F332D02872C9CC00E9F457 /* TradingDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +74,14 @@
 		0325745B286E8ACA008DAF21 /* StockMarket */ = {
 			isa = PBXGroup;
 			children = (
+				03F332CF2872C8D200E9F457 /* Model */,
 				0325745C286E8ACA008DAF21 /* AppDelegate.swift */,
 				0325745E286E8ACA008DAF21 /* SceneDelegate.swift */,
+				0340043F2872D90600860348 /* ShareFetcher.swift */,
 				03257470286E8C9D008DAF21 /* Views */,
 				03257465286E8ACB008DAF21 /* Assets.xcassets */,
 				0325746A286E8ACB008DAF21 /* Info.plist */,
+				03F332C92872C22D00E9F457 /* key.txt */,
 			);
 			path = StockMarket;
 			sourceTree = "<group>";
@@ -66,10 +89,33 @@
 		03257470286E8C9D008DAF21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03257460286E8ACA008DAF21 /* ViewController.swift */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
+				0340044428731E8600860348 /* SearchTab */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0340044428731E8600860348 /* SearchTab */ = {
+			isa = PBXGroup;
+			children = (
+				0340044528732BBA00860348 /* SearchFoundView.swift */,
+				0340044728732CB300860348 /* SearchNotFoundView.swift */,
+				03F332CB2872C4C100E9F457 /* SearchViewController.swift */,
+				0340044D2873308E00860348 /* SearchPresenter.swift */,
+				0340044B2873303200860348 /* SearchState.swift */,
+				0340044928732EE400860348 /* SearchInProgressView.swift */,
+				0340044228731E7E00860348 /* SearchPromptView.swift */,
+			);
+			path = SearchTab;
+			sourceTree = "<group>";
+		};
+		03F332CF2872C8D200E9F457 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03F332CD2872C8C800E9F457 /* Share.swift */,
+				03F332D02872C9CC00E9F457 /* TradingDay.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F332CA2872C22D00E9F457 /* key.txt in Resources */,
 				03257466286E8ACB008DAF21 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +188,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03257461286E8ACA008DAF21 /* ViewController.swift in Sources */,
+				03F332CE2872C8C800E9F457 /* Share.swift in Sources */,
+				0340044828732CB300860348 /* SearchNotFoundView.swift in Sources */,
 				0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */,
+				0340044C2873303200860348 /* SearchState.swift in Sources */,
 				0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */,
+				0340044628732BBA00860348 /* SearchFoundView.swift in Sources */,
+				03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */,
+				0340044328731E7E00860348 /* SearchPromptView.swift in Sources */,
+				03F332D12872C9CC00E9F457 /* TradingDay.swift in Sources */,
+				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
+				034004402872D90700860348 /* ShareFetcher.swift in Sources */,
+				0340044A28732EE400860348 /* SearchInProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
