@@ -13,6 +13,8 @@ struct ShareFetcher {
         case invalidURL
     }
     
+    static var shared = ShareFetcher()
+    
     var apiKey: String {
         guard let url = Bundle.main.url(forResource: "key", withExtension: "txt"), let key = try? String(contentsOf: url) else {
             fatalError("There is not an API key in the app Bundle!!!")
