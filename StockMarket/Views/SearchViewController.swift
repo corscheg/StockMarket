@@ -26,5 +26,13 @@ class SearchViewController: UIViewController {
 
         navigationItem.title = "Search"
         navigationItem.searchController = UISearchController(searchResultsController: nil)
+        
+        Task {
+            do {
+                let share = try await ShareFetcher().fetchShare(withTicker: "AAPL")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
