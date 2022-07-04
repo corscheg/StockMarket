@@ -23,7 +23,13 @@ class RootTabBar: UITabBarController {
         
         var vcs: [UIViewController] = []
         
-        for i in (0...3) {
+        let svc = SearchViewController()
+        svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        let snc = UINavigationController(rootViewController: svc)
+        snc.navigationBar.prefersLargeTitles = true
+        vcs.append(snc)
+        
+        for i in (0...2) {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(hue: (CGFloat(i) / 4), saturation: 1, brightness: 1, alpha: 1)
             vc.tabBarItem = UITabBarItem(title: String(i), image: UIImage(systemName: "\(i).circle"), selectedImage: nil)
