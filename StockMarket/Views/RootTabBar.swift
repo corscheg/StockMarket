@@ -13,10 +13,12 @@ class RootTabBar: UITabBarController {
         super.viewDidLoad()
         
         fillWithViewControllers()
+        tabBar.backgroundColor = .lightGray
+        tabBar.alpha = 0.5
     }
     
     
-    // MARK: Just for ensure that the TabBarController works
+    // MARK: Just for ensure that the TabBarController works. To be filled with real ViewControllers later on.
     func fillWithViewControllers() {
         
         var vcs: [UIViewController] = []
