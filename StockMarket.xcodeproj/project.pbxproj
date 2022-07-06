@@ -19,6 +19,7 @@
 		036CF1542875CB6E00489CFC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1532875CB6E00489CFC /* Company.swift */; };
 		036CF1562875CBAC00489CFC /* SearchFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1552875CBAC00489CFC /* SearchFoundView.swift */; };
 		036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15B2875D0B600489CFC /* DataFetcher.swift */; };
+		036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */; };
 		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
 		03CDE7FF2875C0A400E01968 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03CDE7FE2875C0A400E01968 /* key.txt */; };
 		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
@@ -39,6 +40,7 @@
 		036CF1532875CB6E00489CFC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		036CF1552875CBAC00489CFC /* SearchFoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFoundView.swift; sourceTree = "<group>"; };
 		036CF15B2875D0B600489CFC /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsFetcher.swift; sourceTree = "<group>"; };
 		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
 		03CDE7FE2875C0A400E01968 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
 		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */,
+				036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */,
 				036CF15B2875D0B600489CFC /* DataFetcher.swift */,
 			);
 			path = Networking;
@@ -206,6 +209,7 @@
 				03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */,
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
+				036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */,
 				036CF1562875CBAC00489CFC /* SearchFoundView.swift in Sources */,
 				0340044A28732EE400860348 /* SearchInProgressView.swift in Sources */,
 				036CF1542875CB6E00489CFC /* Company.swift in Sources */,
