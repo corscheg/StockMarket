@@ -10,20 +10,19 @@ import UIKit
 class SearchFoundView: UIView {
     
     var text: UILabel!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        super.init(frame: CGRect())
         setProperties()
-        
         createSubviews()
     }
-
+    
     required init?(coder: NSCoder) {
+        self.name = ""
         super.init(coder: coder)
-        
         setProperties()
-        
         createSubviews()
     }
     
@@ -39,7 +38,7 @@ class SearchFoundView: UIView {
     func createSubviews() {
         text = UILabel()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "FOUND PLACEHOLDER"
+        text.text = name
         text.font = .preferredFont(forTextStyle: .largeTitle)
         text.numberOfLines = 0
         text.textAlignment = .center

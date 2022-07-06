@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
 
         navigationItem.title = "Search"
         navigationItem.searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController?.searchResultsUpdater = self
+        navigationItem.searchController?.searchBar.delegate = self
         
     }
     
@@ -44,8 +44,8 @@ class SearchViewController: UIViewController {
         switch state {
         case .prompt:
             resultView = SearchPromptView()
-        case .found:
-            resultView = SearchFoundView()
+        case .found(let name):
+            resultView = SearchFoundView(name: name)
         case .notFound:
             resultView = SearchNotFoundView()
         case .inProgress:
@@ -54,11 +54,8 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        presenter.search(for: searchController.searchBar.text ?? "")
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        presenter.search(for: navigationItem.searchController?.searchBar.text ?? "")
     }
-    
-    
 }

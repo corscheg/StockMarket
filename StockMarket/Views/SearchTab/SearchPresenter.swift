@@ -11,9 +11,11 @@ class SearchPresenter {
     var state: SearchState = .prompt
     var task: Task<Void, Never>?
     
-    weak var view: SearchViewController!
+    weak var view: SearchViewController?
     
-    var result: Share?
+    var result: Company?
+    
+    
     
     func search(for ticker: String) {
         task?.cancel()
@@ -23,11 +25,11 @@ class SearchPresenter {
         
         task = Task {
             do {
-                result = try await ShareFetcher.shared.fetchShare(withTicker: ticker)
-                state = .found
+                result = try await CompanyFetcher.shared.fetchCompany(with: ticker)
+                state = .found(name: result?.name ?? "Fetching company issues...")
             } catch {
                 state = .notFound
-                print(error.localizedDescription)
+                print(error)
             }
             DispatchQueue.main.async { [weak self] in
                 self?.updateView()
@@ -36,6 +38,6 @@ class SearchPresenter {
     }
     
     func updateView() {
-        view.updateUI(with: state)
+        view?.updateUI(with: state)
     }
 }

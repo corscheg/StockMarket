@@ -8,5 +8,8 @@
 import Foundation
 
 enum SearchState {
-    case prompt, found, notFound, inProgress
+    case prompt
+    case found(name: String)
+    case notFound
+    case inProgress
 }
