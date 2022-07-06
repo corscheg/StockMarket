@@ -7,34 +7,22 @@
 
 import Foundation
 
-class CompanyFetcher {
-    
-    enum CompanyFetchingError: Error {
-        case invalidURL
-    }
-    
-    var apiKey: String
+class CompanyFetcher: DataFetcher {
     
     static var shared = CompanyFetcher()
     
-    private init() {
-        guard let keyURL = Bundle.main.url(forResource: "key", withExtension: "txt"), let key = try? String(contentsOf: keyURL) else {
-            fatalError()
-        }
-        apiKey = key.trimmingCharacters(in: .whitespacesAndNewlines)
+    override private init() {
+        super.init()
     }
     
     func fetchCompany(with ticker: String) async throws -> Company {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "finnhub.io"
         components.path = "/api/v1/stock/profile2"
         let symbolItem = URLQueryItem(name: "symbol", value: ticker)
         let keyItem = URLQueryItem(name: "token", value: apiKey)
         components.queryItems = [symbolItem, keyItem]
         
         guard let url = components.url else {
-            throw CompanyFetchingError.invalidURL
+            throw DataFetchingError.invalidURL
         }
         
         let request = URLRequest(url: url)
