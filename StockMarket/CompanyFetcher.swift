@@ -27,7 +27,9 @@ class CompanyFetcher: DataFetcher {
         
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
+        print(String(data: data, encoding: .utf8)!)
         let company = try JSONDecoder().decode(Company.self, from: data)
+        print(company)
         
         return company
     }

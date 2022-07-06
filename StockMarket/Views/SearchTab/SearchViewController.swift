@@ -8,11 +8,23 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    var names = [String]()
     
     var presenter = SearchPresenter()
     
+    var tableView: UITableView!
+    
     override func loadView() {
         view = UIView()
+        
+        tableView = UITableView(frame: view.bounds)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
 
     override func viewDidLoad() {
@@ -25,15 +37,40 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController?.searchBar.delegate = self
         
+        tableView.dataSource = self
+        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "Result")
+        
+        
     }
     
-    func updateUI(with state: SearchState) {
-        
+    func updateUI() {
+        tableView.reloadData()
+    }
+    
+    func updateNames(_ newNames: [String]) {
+        names = newNames
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.search(for: navigationItem.searchController?.searchBar.text ?? "")
+    }
+}
+
+extension SearchViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! SearchTableViewCell
+        cell.configure(for: presenter.results[indexPath.row])
+        return cell
     }
 }

@@ -8,27 +8,31 @@
 import Foundation
 
 class SearchPresenter {
-    var state: SearchState = .prompt
     var task: Task<Void, Never>?
     
     weak var view: SearchViewController?
     
-    var result: Company?
+    var results: [Company] = []
+    
+    var names: [String] {
+        var names = [String]()
+        for result in results {
+            names.append(result.name)
+        }
+        return names
+    }
     
     
     
     func search(for ticker: String) {
         task?.cancel()
         task = nil
-        state = .inProgress
         updateView()
         
         task = Task {
             do {
-                result = try await CompanyFetcher.shared.fetchCompany(with: ticker)
-                state = .found(name: result?.name ?? "Fetching company issues...")
+                results = try await SearchResultsFetcher.shared.fetchResults(for: ticker)
             } catch {
-                state = .notFound
                 print(error)
             }
             DispatchQueue.main.async { [weak self] in
@@ -37,7 +41,8 @@ class SearchPresenter {
         }
     }
     
-    func updateView() {
-        view?.updateUI(with: state)
+    private func updateView() {
+        view?.updateNames(names)
+        view?.updateUI()
     }
 }

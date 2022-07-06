@@ -28,11 +28,13 @@ class SearchResultsFetcher: DataFetcher {
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         let received = try JSONDecoder().decode(SearchResults.self, from: data)
+        print(received)
         
         var companies = [Company]()
         for result in received.results {
-            let company = try await CompanyFetcher.shared.fetchCompany(with: result.ticker)
-            companies.append(company)
+            if let company = try? await CompanyFetcher.shared.fetchCompany(with: result.ticker) {
+                companies.append(company)
+            }
         }
         
         return companies
@@ -43,7 +45,7 @@ class SearchResultsFetcher: DataFetcher {
 struct SearchResult: Decodable {
     enum CodingKeys: String, CodingKey {
         case description
-        case ticker = "symbol"
+        case ticker = "displaySymbol"
     }
     
     var description: String
