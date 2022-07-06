@@ -11,21 +11,8 @@ class SearchViewController: UIViewController {
     
     var presenter = SearchPresenter()
     
-    var searchBar: UISearchBar!
-    var resultView: UIView! {
-        
-        didSet {
-            view.addSubview(resultView)
-            resultView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-            resultView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-            resultView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-            resultView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        }
-    }
-    
     override func loadView() {
         view = UIView()
-        resultView = SearchPromptView()
     }
 
     override func viewDidLoad() {
@@ -41,16 +28,7 @@ class SearchViewController: UIViewController {
     }
     
     func updateUI(with state: SearchState) {
-        switch state {
-        case .prompt:
-            resultView = SearchPromptView()
-        case .found(let name):
-            resultView = SearchFoundView(name: name)
-        case .notFound:
-            resultView = SearchNotFoundView()
-        case .inProgress:
-            resultView = SearchInProgressView()
-        }
+        
     }
 }
 
