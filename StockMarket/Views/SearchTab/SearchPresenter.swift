@@ -27,6 +27,7 @@ class SearchPresenter {
                 state = .found
             } catch {
                 state = .notFound
+                print(error.localizedDescription)
             }
             DispatchQueue.main.async { [weak self] in
                 self?.updateView()
