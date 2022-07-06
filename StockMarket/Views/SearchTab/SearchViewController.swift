@@ -24,8 +24,7 @@ class SearchViewController: UIViewController {
     }
     
     override func loadView() {
-        super.loadView()
-
+        view = UIView()
         resultView = SearchPromptView()
     }
 
