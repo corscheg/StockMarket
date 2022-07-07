@@ -331,6 +331,7 @@
 				DEVELOPMENT_TEAM = H5R82ZFKSP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StockMarket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stock Market";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -358,6 +359,7 @@
 				DEVELOPMENT_TEAM = H5R82ZFKSP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StockMarket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stock Market";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
