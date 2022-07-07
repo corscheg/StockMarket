@@ -18,7 +18,9 @@ class SearchPresenter {
     func search(for ticker: String) {
         task?.cancel()
         task = nil
+        companies = []
         updateView()
+        startNetworkingIndication()
         
         task = Task {
             do {
@@ -32,12 +34,14 @@ class SearchPresenter {
                         DispatchQueue.main.async { [weak self] in
                             self?.updateView()
                         }
-                        
                     }
-                    
                 }
                 
+                DispatchQueue.main.async { [weak self] in
+                    self?.stopNetworkingIndication()
+                }
             } catch {
+                // TODO: Replace debug print statement
                 print(error)
             }
         }
@@ -45,5 +49,13 @@ class SearchPresenter {
     
     private func updateView() {
         view?.updateUI()
+    }
+    
+    private func startNetworkingIndication() {
+        view?.startNetworkingIndication()
+    }
+    
+    private func stopNetworkingIndication() {
+        view?.stopNetworkingIndication()
     }
 }

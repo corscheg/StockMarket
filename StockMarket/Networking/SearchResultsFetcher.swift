@@ -28,6 +28,8 @@ class SearchResultsFetcher: DataFetcher {
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         let received = try JSONDecoder().decode(SearchResults.self, from: data)
+        
+        // TODO: Remove debug print statement
         print(received)
         
         return received.results.map { $0.ticker }

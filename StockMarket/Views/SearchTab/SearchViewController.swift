@@ -12,9 +12,14 @@ class SearchViewController: UIViewController {
     var presenter = SearchPresenter()
     
     var tableView: UITableView!
+    var indicatorView: UIActivityIndicatorView!
     
     override func loadView() {
         view = UIView()
+        
+        navigationItem.title = "Search"
+        navigationItem.searchController = UISearchController(searchResultsController: nil)
+        
         
         tableView = UITableView(frame: view.bounds)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +29,15 @@ class SearchViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        indicatorView = UIActivityIndicatorView()
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.searchController?.searchBar.addSubview(indicatorView)
+        
+        if let searchController = navigationItem.searchController {
+            indicatorView.centerYAnchor.constraint(equalTo: searchController.searchBar.centerYAnchor).isActive = true
+            indicatorView.rightAnchor.constraint(equalTo: searchController.searchBar.rightAnchor, constant: -10).isActive = true
+        }
     }
 
     override func viewDidLoad() {
@@ -31,9 +45,6 @@ class SearchViewController: UIViewController {
         
         view.backgroundColor = .systemGray6
         presenter.view = self
-
-        navigationItem.title = "Search"
-        navigationItem.searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController?.searchBar.delegate = self
         
         tableView.dataSource = self
@@ -44,6 +55,14 @@ class SearchViewController: UIViewController {
     
     func updateUI() {
         tableView.reloadData()
+    }
+    
+    func startNetworkingIndication() {
+        indicatorView.startAnimating()
+    }
+    
+    func stopNetworkingIndication() {
+        indicatorView.stopAnimating()
     }
 }
 
