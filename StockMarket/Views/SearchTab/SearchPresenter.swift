@@ -12,17 +12,8 @@ class SearchPresenter {
     
     weak var view: SearchViewController?
     
-    var results: [Company] = []
-    
-    var names: [String] {
-        var names = [String]()
-        for result in results {
-            names.append(result.name)
-        }
-        return names
-    }
-    
-    
+    var resultTickers: [String] = []
+    var companies: [Company] = []    
     
     func search(for ticker: String) {
         task?.cancel()
@@ -31,18 +22,28 @@ class SearchPresenter {
         
         task = Task {
             do {
-                results = try await SearchResultsFetcher.shared.fetchResults(for: ticker)
+                resultTickers = try await SearchResultsFetcher.shared.fetchResults(for: ticker)
+                
+                for resultTicker in resultTickers {
+                    if let company = try? await CompanyFetcher.shared.fetchCompany(with: resultTicker), !companies.contains(company) {
+                        
+                        companies.append(company)
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.updateView()
+                        }
+                        
+                    }
+                    
+                }
+                
             } catch {
                 print(error)
-            }
-            DispatchQueue.main.async { [weak self] in
-                self?.updateView()
             }
         }
     }
     
     private func updateView() {
-        view?.updateNames(names)
         view?.updateUI()
     }
 }

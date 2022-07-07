@@ -15,7 +15,7 @@ class SearchResultsFetcher: DataFetcher {
         super.init()
     }
     
-    func fetchResults(for query: String) async throws -> [Company] {
+    func fetchResults(for query: String) async throws -> [String] {
         components.path = "/api/v1/search"
         let queryItem = URLQueryItem(name: "q", value: query)
         let keyItem = URLQueryItem(name: "token", value: apiKey)
@@ -30,16 +30,7 @@ class SearchResultsFetcher: DataFetcher {
         let received = try JSONDecoder().decode(SearchResults.self, from: data)
         print(received)
         
-        var companies = [Company]()
-        for result in received.results {
-            if let company = try? await CompanyFetcher.shared.fetchCompany(with: result.ticker) {
-                companies.append(company)
-            }
-        }
-        
-        companies = Array(Set(companies))
-        
-        return companies
+        return received.results.map { $0.ticker }
     }
     
 }

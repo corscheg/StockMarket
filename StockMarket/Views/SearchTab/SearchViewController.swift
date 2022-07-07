@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    var names = [String]()
     
     var presenter = SearchPresenter()
     
@@ -46,10 +45,6 @@ class SearchViewController: UIViewController {
     func updateUI() {
         tableView.reloadData()
     }
-    
-    func updateNames(_ newNames: [String]) {
-        names = newNames
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -65,12 +60,12 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return presenter.companies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! SearchTableViewCell
-        cell.configure(for: presenter.results[indexPath.row])
+        cell.configure(for: presenter.companies[indexPath.row])
         return cell
     }
 }
