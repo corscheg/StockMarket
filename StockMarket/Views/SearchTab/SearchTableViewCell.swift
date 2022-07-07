@@ -16,6 +16,8 @@ class SearchTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        accessoryType = .disclosureIndicator
+        
         hStack = UIStackView()
         hStack.translatesAutoresizingMaskIntoConstraints = false
         hStack.axis = .horizontal
@@ -23,21 +25,21 @@ class SearchTableViewCell: UITableViewCell {
         hStack.distribution = .equalSpacing
         addSubview(hStack)
         
+        hStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        hStack.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.9).isActive = true
         hStack.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        hStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        hStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
         hStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         
         nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.numberOfLines = 1
-        nameLabel.font = .preferredFont(forTextStyle: .title1)
+        nameLabel.font = .preferredFont(forTextStyle: .title2)
         hStack.addArrangedSubview(nameLabel)
         
         tickerLabel = UILabel()
         tickerLabel.translatesAutoresizingMaskIntoConstraints = false
         tickerLabel.numberOfLines = 1
-        tickerLabel.font = .preferredFont(forTextStyle: .title3)
+        tickerLabel.font = .preferredFont(forTextStyle: .subheadline)
         tickerLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760), for: .horizontal)
         hStack.addArrangedSubview(tickerLabel)
         
