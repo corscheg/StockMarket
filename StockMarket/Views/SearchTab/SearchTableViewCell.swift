@@ -38,6 +38,7 @@ class SearchTableViewCell: UITableViewCell {
         tickerLabel.translatesAutoresizingMaskIntoConstraints = false
         tickerLabel.numberOfLines = 1
         tickerLabel.font = .preferredFont(forTextStyle: .title3)
+        tickerLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760), for: .horizontal)
         hStack.addArrangedSubview(tickerLabel)
         
     }
