@@ -70,10 +70,10 @@
 		0325745B286E8ACA008DAF21 /* StockMarket */ = {
 			isa = PBXGroup;
 			children = (
-				03CDE7FB2875BFF200E01968 /* Networking */,
-				03F332CF2872C8D200E9F457 /* Model */,
 				0325745C286E8ACA008DAF21 /* AppDelegate.swift */,
 				0325745E286E8ACA008DAF21 /* SceneDelegate.swift */,
+				03CDE7FB2875BFF200E01968 /* Networking */,
+				03F332CF2872C8D200E9F457 /* Model */,
 				03257470286E8C9D008DAF21 /* Views */,
 				03257465286E8ACB008DAF21 /* Assets.xcassets */,
 				0325746A286E8ACB008DAF21 /* Info.plist */,

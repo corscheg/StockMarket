@@ -21,6 +21,10 @@ extension SearchPresenter {
         view?.updateUI()
     }
     
+    private func updateViewNotFound() {
+        view?.updateNotFound()
+    }
+    
     private func startNetworkingIndication() {
         view?.startNetworkingIndication()
     }
@@ -42,13 +46,24 @@ extension SearchPresenter {
             do {
                 resultTickers = try await SearchResultsFetcher.shared.fetchResults(for: ticker)
                 
-                for resultTicker in resultTickers {
-                    if let company = try? await CompanyFetcher.shared.fetchCompany(with: resultTicker), !companies.contains(company) {
-                        
-                        companies.append(company)
-                        
+                if resultTickers.isEmpty {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.updateViewNotFound()
+                    }
+                } else {
+                    for resultTicker in resultTickers {
+                        if let company = try? await CompanyFetcher.shared.fetchCompany(with: resultTicker), !companies.contains(company) {
+                            
+                            companies.append(company)
+                            
+                            DispatchQueue.main.async { [weak self] in
+                                self?.updateView()
+                            }
+                        }
+                    }
+                    if companies.isEmpty {
                         DispatchQueue.main.async { [weak self] in
-                            self?.updateView()
+                            self?.updateViewNotFound()
                         }
                     }
                 }

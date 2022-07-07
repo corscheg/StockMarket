@@ -14,6 +14,11 @@ class SearchViewController: UIViewController {
     var tableView: UITableView!
     var indicatorView: UIActivityIndicatorView!
     
+    var notFoundView: UIStackView!
+    var noResults: UILabel!
+    var tryAnother: UILabel!
+    
+    
     override func loadView() {
         view = UIView()
         
@@ -29,6 +34,34 @@ class SearchViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        notFoundView = UIStackView()
+        notFoundView.translatesAutoresizingMaskIntoConstraints = false
+        notFoundView.axis = .vertical
+        notFoundView.alignment = .center
+        notFoundView.distribution = .equalSpacing
+        notFoundView.spacing = 7
+        notFoundView.isHidden = true
+        view.addSubview(notFoundView)
+        
+        noResults = UILabel()
+        noResults.translatesAutoresizingMaskIntoConstraints = false
+        noResults.font = .preferredFont(forTextStyle: .largeTitle)
+        noResults.numberOfLines = 1
+        noResults.textAlignment = .center
+        noResults.text = "No Results"
+        notFoundView.addArrangedSubview(noResults)
+        
+        tryAnother = UILabel()
+        tryAnother.translatesAutoresizingMaskIntoConstraints = false
+        tryAnother.font = .preferredFont(forTextStyle: .subheadline)
+        tryAnother.numberOfLines = 1
+        tryAnother.textAlignment = .center
+        tryAnother.text = "Try a new search."
+        notFoundView.addArrangedSubview(tryAnother)
+        
+        notFoundView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        notFoundView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         
         indicatorView = UIActivityIndicatorView()
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,9 +139,17 @@ extension SearchViewController {
     
     func startNetworkingIndication() {
         indicatorView.startAnimating()
+        notFoundView.isHidden = true
+        tableView.isHidden = false
     }
     
     func stopNetworkingIndication() {
         indicatorView.stopAnimating()
     }
+    
+    func updateNotFound() {
+        notFoundView.isHidden = false
+        tableView.isHidden = true
+    }
+    
 }
