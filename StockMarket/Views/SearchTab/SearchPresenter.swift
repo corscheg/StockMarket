@@ -13,8 +13,24 @@ class SearchPresenter {
     weak var view: SearchViewController?
     
     var resultTickers: [String] = []
-    var companies: [Company] = []    
+    var companies: [Company] = []
+}
+
+extension SearchPresenter {
+    private func updateView() {
+        view?.updateUI()
+    }
     
+    private func startNetworkingIndication() {
+        view?.startNetworkingIndication()
+    }
+    
+    private func stopNetworkingIndication() {
+        view?.stopNetworkingIndication()
+    }
+}
+
+extension SearchPresenter {
     func search(for ticker: String) {
         task?.cancel()
         task = nil
@@ -53,17 +69,5 @@ class SearchPresenter {
         companies = []
         updateView()
         stopNetworkingIndication()
-    }
-    
-    private func updateView() {
-        view?.updateUI()
-    }
-    
-    private func startNetworkingIndication() {
-        view?.startNetworkingIndication()
-    }
-    
-    private func stopNetworkingIndication() {
-        view?.stopNetworkingIndication()
     }
 }

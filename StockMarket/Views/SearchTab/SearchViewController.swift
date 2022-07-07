@@ -52,27 +52,15 @@ class SearchViewController: UIViewController {
         
         
     }
-    
-    func updateUI() {
-        tableView.reloadData()
-    }
-    
-    func startNetworkingIndication() {
-        indicatorView.startAnimating()
-    }
-    
-    func stopNetworkingIndication() {
-        indicatorView.stopAnimating()
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.search(for: navigationItem.searchController?.searchBar.text ?? "")
+        search(for: navigationItem.searchController?.searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        presenter.cancelSearch()
+        cancelSearch()
     }
 }
 
@@ -83,12 +71,44 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.companies.count
+        return numberOfCompanies()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! SearchTableViewCell
-        cell.configure(for: presenter.companies[indexPath.row])
+        cell.configure(for: company(forIndex: indexPath.row))
         return cell
+    }
+}
+
+extension SearchViewController {
+    private func company(forIndex index: Int) -> Company {
+        presenter.companies[index]
+    }
+    
+    private func numberOfCompanies() -> Int {
+        presenter.companies.count
+    }
+    
+    private func search(for query: String) {
+        presenter.search(for: query)
+    }
+    
+    private func cancelSearch() {
+        presenter.cancelSearch()
+    }
+}
+
+extension SearchViewController {
+    func updateUI() {
+        tableView.reloadData()
+    }
+    
+    func startNetworkingIndication() {
+        indicatorView.startAnimating()
+    }
+    
+    func stopNetworkingIndication() {
+        indicatorView.stopAnimating()
     }
 }
