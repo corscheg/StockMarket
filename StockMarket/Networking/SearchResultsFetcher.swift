@@ -37,6 +37,8 @@ class SearchResultsFetcher: DataFetcher {
             }
         }
         
+        companies = Array(Set(companies))
+        
         return companies
     }
     
