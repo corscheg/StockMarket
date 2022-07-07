@@ -61,7 +61,7 @@ extension SearchPresenter {
                             }
                         }
                     }
-                    if companies.isEmpty {
+                    if companies.isEmpty && task != nil {
                         DispatchQueue.main.async { [weak self] in
                             self?.updateViewNotFound()
                         }
