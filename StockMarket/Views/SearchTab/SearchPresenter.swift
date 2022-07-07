@@ -47,6 +47,14 @@ class SearchPresenter {
         }
     }
     
+    func cancelSearch() {
+        task?.cancel()
+        task = nil
+        companies = []
+        updateView()
+        stopNetworkingIndication()
+    }
+    
     private func updateView() {
         view?.updateUI()
     }

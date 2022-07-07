@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
         
         if let searchController = navigationItem.searchController {
             indicatorView.centerYAnchor.constraint(equalTo: searchController.searchBar.centerYAnchor).isActive = true
-            indicatorView.rightAnchor.constraint(equalTo: searchController.searchBar.rightAnchor, constant: -10).isActive = true
+            indicatorView.rightAnchor.constraint(equalTo: searchController.searchBar.rightAnchor, constant: -117).isActive = true
         }
     }
 
@@ -69,6 +69,10 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.search(for: navigationItem.searchController?.searchBar.text ?? "")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        presenter.cancelSearch()
     }
 }
 
