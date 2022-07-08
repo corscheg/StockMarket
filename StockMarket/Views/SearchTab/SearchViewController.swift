@@ -83,6 +83,7 @@ class SearchViewController: UIViewController {
         navigationItem.searchController?.searchBar.delegate = self
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "Result")
         
         
@@ -99,7 +100,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -113,6 +114,11 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! SearchTableViewCell
         cell.configure(for: company(forIndex: indexPath.row))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetail(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -131,6 +137,10 @@ extension SearchViewController {
     
     private func cancelSearch() {
         presenter.cancelSearch()
+    }
+    
+    private func openDetail(at index: Int) {
+        presenter.initiateDetail(at: index)
     }
 }
 
@@ -152,6 +162,10 @@ extension SearchViewController {
     func updateNotFound() {
         notFoundView.isHidden = false
         tableView.isHidden = true
+    }
+    
+    func push(detailView view: DetailViewController) {
+        navigationController?.pushViewController(view, animated: true)
     }
     
 }

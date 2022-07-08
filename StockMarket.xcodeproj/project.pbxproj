@@ -17,6 +17,8 @@
 		036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15B2875D0B600489CFC /* DataFetcher.swift */; };
 		036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */; };
 		036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1612875DCC400489CFC /* SearchTableViewCell.swift */; };
+		03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5F82878513300184A1A /* DetailViewController.swift */; };
+		03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5FA2878513F00184A1A /* DetailPresenter.swift */; };
 		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
 		03CDE7FF2875C0A400E01968 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03CDE7FE2875C0A400E01968 /* key.txt */; };
 		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
@@ -35,6 +37,8 @@
 		036CF15B2875D0B600489CFC /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsFetcher.swift; sourceTree = "<group>"; };
 		036CF1612875DCC400489CFC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		03C6E5F82878513300184A1A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		03C6E5FA2878513F00184A1A /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
 		03CDE7FE2875C0A400E01968 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
 		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		03257470286E8C9D008DAF21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				03C6E5F72878511300184A1A /* Detail */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
 				0340044428731E8600860348 /* SearchTab */,
 			);
@@ -100,6 +105,15 @@
 				0340044B2873303200860348 /* SearchState.swift */,
 			);
 			path = SearchTab;
+			sourceTree = "<group>";
+		};
+		03C6E5F72878511300184A1A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				03C6E5F82878513300184A1A /* DetailViewController.swift */,
+				03C6E5FA2878513F00184A1A /* DetailPresenter.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		03CDE7FB2875BFF200E01968 /* Networking */ = {
@@ -193,12 +207,14 @@
 				036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */,
 				0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */,
 				0340044C2873303200860348 /* SearchState.swift in Sources */,
+				03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */,
 				0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */,
 				03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */,
 				03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */,
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
 				036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */,
+				03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */,
 				036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */,
 				036CF1542875CB6E00489CFC /* Company.swift in Sources */,
 			);
