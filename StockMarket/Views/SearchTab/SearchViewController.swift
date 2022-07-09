@@ -88,6 +88,10 @@ class SearchViewController: UIViewController {
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
