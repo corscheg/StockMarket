@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     var company: Company!
     
     var nameLabel: UILabel!
+    var logoImageView: UIImageView!
     
     override func loadView() {
         view = UIView()
@@ -25,10 +26,21 @@ class DetailViewController: UIViewController {
         
         nameLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         nameLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        
+        logoImageView = UIImageView()
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImageView)
+        
+        logoImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        // TEMP
+        logoImageView.image = UIImage(systemName: "pc")
 
         notifyPresenterLoaded()
     }
@@ -37,11 +49,19 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     func set(company: Company) {
         self.company = company
+        
         updateUI()
     }
     
     func updateUI() {
         nameLabel.text = company.name
+        navigationItem.title = company.name
+        
+        if let imageData = company.logoImageData {
+            if let image = UIImage(data: imageData) {
+                logoImageView.image = image
+            }
+        }
     }
 }
 
