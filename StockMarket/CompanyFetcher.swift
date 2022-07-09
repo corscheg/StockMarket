@@ -28,9 +28,17 @@ class CompanyFetcher: DataFetcher {
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         
-        // TODO: Remove debug print statements
-        print(String(data: data, encoding: .utf8)!)
-        let company = try JSONDecoder().decode(Company.self, from: data)
+        var company = try JSONDecoder().decode(Company.self, from: data)
+        
+        guard let logoURL = company.logoURL else {
+            return company
+        }
+        
+        let (imageData, _) = try await URLSession.shared.data(from: logoURL)
+        
+        company.logoImageData = imageData
+        
+        // TODO: Remove debug print statement
         print(company)
         
         return company

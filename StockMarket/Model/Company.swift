@@ -13,10 +13,23 @@ struct Company: Decodable, Hashable {
         case name
         case ticker
         case industry = "finnhubIndustry"
+        case logoURL = "logo"
+        
     }
     
     var name: String
     var ticker: String
     var industry: String
+    var logoURL: URL?
+    var logoImageData: Data?
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try container.decode(String.self, forKey: .name)
+        ticker = try container.decode(String.self, forKey: .ticker)
+        industry = try container.decode(String.self, forKey: .industry)
+        
+        logoURL = try? URL(string: container.decode(String.self, forKey: .logoURL))
+    }
 }
