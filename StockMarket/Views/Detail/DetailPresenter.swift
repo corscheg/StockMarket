@@ -19,7 +19,7 @@ class DetailPresenter {
 
 extension DetailPresenter {
     private func setCompanyIntoView() {
-        view?.setDetails(name: company.name)
+        view?.set(company: company)
     }
 }
 

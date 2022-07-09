@@ -11,6 +11,8 @@ class DetailViewController: UIViewController {
     
     var presenter: DetailPresenter!
     
+    var company: Company!
+    
     var nameLabel: UILabel!
     
     override func loadView() {
@@ -33,8 +35,13 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController {
-    func setDetails(name: String) {
-        nameLabel.text = name
+    func set(company: Company) {
+        self.company = company
+        updateUI()
+    }
+    
+    func updateUI() {
+        nameLabel.text = company.name
     }
 }
 
