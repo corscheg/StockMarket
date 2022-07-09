@@ -29,6 +29,17 @@ class DetailViewController: UIViewController {
         
         logoImageView = UIImageView()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.backgroundColor = .white
+        logoImageView.layer.cornerCurve = .continuous
+        logoImageView.layer.cornerRadius = 30
+        logoImageView.clipsToBounds = true
+        logoImageView.layer.borderWidth = 2
+        logoImageView.layer.borderColor = UIColor.systemGray2.cgColor
+//        logoImageView.layer.shadowColor = UIColor.black.cgColor
+//        logoImageView.layer.shadowRadius = 10
+//        logoImageView.layer.shadowOpacity = 1
+//        logoImageView.layer.shadowPath = UIBezierPath(rect: logoImageView.bounds).cgPath
+//        logoImageView.layer.shadowOffset = .zero
         view.addSubview(logoImageView)
         
         logoImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
@@ -38,9 +49,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-        
-        // TEMP
-        logoImageView.image = UIImage(systemName: "pc")
 
         notifyPresenterLoaded()
     }
@@ -57,11 +65,11 @@ extension DetailViewController {
         nameLabel.text = company.name
         navigationItem.title = company.name
         
-        if let imageData = company.logoImageData {
-            if let image = UIImage(data: imageData) {
-                logoImageView.image = image
-            }
+        guard let imageData = company.logoImageData, let image = UIImage(data: imageData) else {
+            logoImageView.image = UIImage(systemName: "photo")
+            return
         }
+        logoImageView.image = image
     }
 }
 
