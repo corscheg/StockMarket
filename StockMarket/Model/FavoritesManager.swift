@@ -44,4 +44,28 @@ class FavoritesManager {
             save()
         }
     }
+    
+    func refreshData() async {
+        let tickers = favorites.map { $0.ticker }
+        var refreshed = [Company]()
+        
+        for i in 0..<tickers.count {
+            if let new = try? await CompanyFetcher.shared.fetchCompany(with: tickers[i]) {
+                refreshed[i] = new
+            } else {
+                refreshed[i] = favorites[i]
+            }
+        }
+        
+        favorites = refreshed
+        save()
+    }
+    
+    func isFavoriteBy(ticker: String) -> Bool {
+        let tickers = favorites.map { $0.ticker }
+        if let _ = tickers.firstIndex(of: ticker) {
+            return true
+        }
+        return false
+    }
 }

@@ -25,6 +25,10 @@ struct Company: Decodable, Hashable {
     var logoImageData: Data?
     var websiteURL: URL?
     
+    var isFavorite: Bool {
+        FavoritesManager.shared.isFavoriteBy(ticker: ticker)
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
