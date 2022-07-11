@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Company: Decodable, Hashable {
+struct Company: Codable, Hashable {
     
     enum CodingKeys: String, CodingKey {
         case name

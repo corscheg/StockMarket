@@ -15,22 +15,21 @@ class FavoritesManager {
     public static var shared = FavoritesManager()
     
     private init() {
-        if let companies = UserDefaults.standard.object(forKey: key) {
-            if let castedCompanies = companies as? [Company] {
-                favorites = castedCompanies
+        if let data = UserDefaults.standard.data(forKey: key) {
+            if let companies = try? JSONDecoder().decode([Company].self, from: data) {
+                favorites = companies
             } else {
                 fatalError("Invalid favorites format!!!")
             }
         } else {
-            favorites = [
-                Company(name: "Apple Inc", ticker: "AAPL", industry: "Technology"),
-                Company(name: "Microsoft Inc", ticker: "MSFT", industry: "Technology")
-            ]
+            favorites = []
         }
     }
 
     func save() {
-        UserDefaults.standard.set(favorites, forKey: key)
+        if let data = try? JSONEncoder().encode(favorites) {
+            UserDefaults.standard.set(data, forKey: key)
+        }
     }
     
     func add(_ company: Company) {

@@ -21,10 +21,25 @@ extension DetailPresenter {
     private func setCompanyIntoView() {
         view?.set(company: company)
     }
+    
+    private func updateView() {
+        view?.updateUI()
+    }
 }
 
 extension DetailPresenter {
     func isAbleToManipulate() {
         setCompanyIntoView()
     }
+    
+    func switchFavorite() {
+        if company.isFavorite {
+            FavoritesManager.shared.remove(company)
+        } else {
+            FavoritesManager.shared.add(company)
+        }
+        
+        updateView()
+    }
+    
 }

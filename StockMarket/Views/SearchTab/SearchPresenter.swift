@@ -101,4 +101,8 @@ extension SearchPresenter: CompaniesListPresenter {
         
         push(detailView: vc)
     }
+    
+    func updateFavorites() {
+        updateView()
+    }
 }

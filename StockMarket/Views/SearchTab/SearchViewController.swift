@@ -93,6 +93,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        askForUpdate()
     }
 }
 
@@ -147,6 +148,10 @@ extension SearchViewController {
     
     private func openDetail(at index: Int) {
         presenter.initiateDetail(at: index)
+    }
+    
+    private func askForUpdate() {
+        presenter.updateFavorites()
     }
 }
 

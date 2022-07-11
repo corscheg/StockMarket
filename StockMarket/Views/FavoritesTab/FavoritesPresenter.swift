@@ -47,4 +47,9 @@ extension FavoritesPresenter {
         
         push(detailView: vc)
     }
+    
+    func updateFavorites() {
+        companies = FavoritesManager.shared.favorites
+        updateView()
+    }
 }

@@ -15,4 +15,5 @@ protocol CompaniesListPresenter {
     func search(for ticker: String)
     func cancelSearch()
     func initiateDetail(at index: Int)
+    func updateFavorites()
 }

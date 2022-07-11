@@ -17,12 +17,15 @@ class DetailViewController: UIViewController {
     var topHStack: UIStackView!
     var vStack: UIStackView!
     var hStack: UIStackView!
+    var favStack: UIStackView!
     
     var logoImageView: UIImageView!
     var nameLabel: UILabel!
     var tickerLabel: UILabel!
     var industryLabel: UILabel!
     var websiteButton: UIButton!
+    var star: UIImageView!
+    var addRemoveFavoriteButton: UIButton!
     
     override func loadView() {
         view = UIView()
@@ -110,6 +113,35 @@ class DetailViewController: UIViewController {
         websiteButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
         websiteButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
         
+        favStack = UIStackView()
+        favStack.translatesAutoresizingMaskIntoConstraints = false
+        favStack.axis = .horizontal
+        favStack.alignment = .center
+        favStack.distribution = .fill
+        favStack.spacing = 10
+        view.addSubview(favStack)
+        
+        favStack.topAnchor.constraint(equalTo: websiteButton.bottomAnchor, constant: 10).isActive = true
+        favStack.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
+        favStack.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7).isActive = true
+        
+        star = UIImageView()
+        star.translatesAutoresizingMaskIntoConstraints = false
+        star.setContentCompressionResistancePriority(UILayoutPriority(260), for: .horizontal)
+        star.image = UIImage(systemName: "star")
+        favStack.addArrangedSubview(star)
+        
+        star.widthAnchor.constraint(equalTo: star.heightAnchor).isActive = true
+        
+        addRemoveFavoriteButton = UIButton()
+        addRemoveFavoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        addRemoveFavoriteButton.backgroundColor = .systemBlue
+        addRemoveFavoriteButton.layer.cornerCurve = .continuous
+        addRemoveFavoriteButton.layer.cornerRadius = 10
+        addRemoveFavoriteButton.addTarget(self, action: #selector(addRemoveTapped), for: .touchUpInside)
+        addRemoveFavoriteButton.setTitle("Hi", for: .normal)
+        favStack.addArrangedSubview(addRemoveFavoriteButton)
+        
     }
 
     override func viewDidLoad() {
@@ -123,6 +155,10 @@ class DetailViewController: UIViewController {
         if let url = company.websiteURL {
             present(SFSafariViewController(url: url), animated: true)
         }
+    }
+    
+    @objc func addRemoveTapped() {
+        switchFavorite()
     }
 }
 
@@ -151,6 +187,14 @@ extension DetailViewController {
             websiteButton.setTitle("Go to website", for: .normal)
         }
         
+        if company.isFavorite {
+            star.image = UIImage(systemName: "star.fill")
+            addRemoveFavoriteButton.setTitle("Remove from Favorites", for: .normal)
+        } else {
+            star.image = UIImage(systemName: "star")
+            addRemoveFavoriteButton.setTitle("Add to Favorites", for: .normal)
+        }
+        
         guard let imageData = company.logoImageData, let image = UIImage(data: imageData) else {
             logoImageView.image = UIImage(systemName: "photo")
             return
@@ -162,5 +206,9 @@ extension DetailViewController {
 extension DetailViewController {
     private func notifyPresenterLoaded() {
         presenter.isAbleToManipulate()
+    }
+    
+    private func switchFavorite() {
+        presenter.switchFavorite()
     }
 }
