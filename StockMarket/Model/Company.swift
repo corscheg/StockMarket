@@ -35,4 +35,10 @@ struct Company: Decodable, Hashable {
         logoURL = try? URL(string: container.decode(String.self, forKey: .logoURL))
         websiteURL = try? URL(string: container.decode(String.self, forKey: .websiteURL))
     }
+    
+    init(name: String, ticker: String, industry: String) {
+        self.name = name
+        self.ticker = ticker
+        self.industry = industry
+    }
 }
