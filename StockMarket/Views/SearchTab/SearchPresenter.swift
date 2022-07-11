@@ -14,6 +14,8 @@ class SearchPresenter {
     
     private var resultTickers: [String] = []
     private(set) var companies: [Company] = []
+    
+    private(set) var viewTitle = "Search"
 }
 
 extension SearchPresenter {

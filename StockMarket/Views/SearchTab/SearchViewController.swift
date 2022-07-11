@@ -22,9 +22,7 @@ class SearchViewController: UIViewController {
     override func loadView() {
         view = UIView()
         
-        navigationItem.title = "Search"
         navigationItem.searchController = UISearchController(searchResultsController: nil)
-        
         
         tableView = UITableView(frame: view.bounds, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +79,9 @@ class SearchViewController: UIViewController {
         
         view.backgroundColor = .systemGray6
         presenter.view = self
+        
+        navigationItem.title = presenter.viewTitle
+        
         navigationItem.searchController?.searchBar.delegate = self
         
         tableView.dataSource = self

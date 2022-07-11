@@ -23,19 +23,29 @@ class RootTabBar: UITabBarController {
         
         var vcs: [UIViewController] = []
         
+        let vc0 = UIViewController()
+        vc0.view.backgroundColor = .systemRed
+        vc0.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
+        vcs.append(vc0)
+        
+        let fvc = SearchViewController()
+        fvc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        fvc.presenter = FavoritesPresenter()
+        let fnc = UINavigationController(rootViewController: fvc)
+        fnc.navigationBar.prefersLargeTitles = true
+        vcs.append(fnc)
+        
         let svc = SearchViewController()
-        svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
         svc.presenter = SearchPresenter()
         let snc = UINavigationController(rootViewController: svc)
         snc.navigationBar.prefersLargeTitles = true
         vcs.append(snc)
         
-        for i in (0...2) {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor(hue: (CGFloat(i) / 4), saturation: 1, brightness: 1, alpha: 1)
-            vc.tabBarItem = UITabBarItem(title: String(i), image: UIImage(systemName: "\(i).circle"), selectedImage: nil)
-            vcs.append(vc)
-        }
+        let vc1 = UIViewController()
+        vc1.view.backgroundColor = .systemCyan
+        vc1.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
+        vcs.append(vc1)
         
         viewControllers = vcs
     }

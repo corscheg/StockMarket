@@ -11,7 +11,6 @@
 		0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325745E286E8ACA008DAF21 /* SceneDelegate.swift */; };
 		03257466286E8ACB008DAF21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03257465286E8ACB008DAF21 /* Assets.xcassets */; };
 		03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03257471286E8CB0008DAF21 /* RootTabBar.swift */; };
-		0340044C2873303200860348 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044B2873303200860348 /* SearchState.swift */; };
 		0340044E2873308E00860348 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044D2873308E00860348 /* SearchPresenter.swift */; };
 		036CF1542875CB6E00489CFC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1532875CB6E00489CFC /* Company.swift */; };
 		036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15B2875D0B600489CFC /* DataFetcher.swift */; };
@@ -22,6 +21,7 @@
 		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
 		03CDE7FF2875C0A400E01968 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03CDE7FE2875C0A400E01968 /* key.txt */; };
 		03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */; };
+		03E238EB287C6680001E0577 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238EA287C6680001E0577 /* FavoritesPresenter.swift */; };
 		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,6 @@
 		03257465286E8ACB008DAF21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0325746A286E8ACB008DAF21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03257471286E8CB0008DAF21 /* RootTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBar.swift; sourceTree = "<group>"; };
-		0340044B2873303200860348 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
 		0340044D2873308E00860348 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		036CF1532875CB6E00489CFC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		036CF15B2875D0B600489CFC /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
 		03CDE7FE2875C0A400E01968 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
 		03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListPresenter.swift; sourceTree = "<group>"; };
+		03E238EA287C6680001E0577 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +93,7 @@
 			children = (
 				03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
+				03E238E9287C665E001E0577 /* FavoritesTab */,
 				03C6E5F72878511300184A1A /* Detail */,
 				0340044428731E8600860348 /* SearchTab */,
 			);
@@ -105,7 +106,6 @@
 				03F332CB2872C4C100E9F457 /* SearchViewController.swift */,
 				036CF1612875DCC400489CFC /* SearchTableViewCell.swift */,
 				0340044D2873308E00860348 /* SearchPresenter.swift */,
-				0340044B2873303200860348 /* SearchState.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -127,6 +127,14 @@
 				036CF15B2875D0B600489CFC /* DataFetcher.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		03E238E9287C665E001E0577 /* FavoritesTab */ = {
+			isa = PBXGroup;
+			children = (
+				03E238EA287C6680001E0577 /* FavoritesPresenter.swift */,
+			);
+			path = FavoritesTab;
 			sourceTree = "<group>";
 		};
 		03F332CF2872C8D200E9F457 /* Model */ = {
@@ -209,11 +217,11 @@
 			files = (
 				036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */,
 				0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */,
-				0340044C2873303200860348 /* SearchState.swift in Sources */,
 				03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */,
 				0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */,
 				03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */,
 				03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */,
+				03E238EB287C6680001E0577 /* FavoritesPresenter.swift in Sources */,
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
 				036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 protocol CompaniesListPresenter {
     var companies: [Company] { get }
     var view: SearchViewController? { get set }
+    var viewTitle: String { get }
     
     func search(for ticker: String)
     func cancelSearch()
