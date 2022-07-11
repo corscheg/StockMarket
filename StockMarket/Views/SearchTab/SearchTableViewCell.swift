@@ -19,6 +19,7 @@ class SearchTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         accessoryType = .disclosureIndicator
+        backgroundColor = .systemGray5
         
         hStack = UIStackView()
         hStack.translatesAutoresizingMaskIntoConstraints = false
