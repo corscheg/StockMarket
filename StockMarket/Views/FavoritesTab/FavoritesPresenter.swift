@@ -12,11 +12,20 @@ class FavoritesPresenter: CompaniesListPresenter {
     weak var view: SearchViewController?
     
     private(set) var viewTitle = "Favorites"
+    
+    init() {
+        companies = FavoritesManager.shared.favorites
+        updateView()
+    }
 }
 
 extension FavoritesPresenter {
     func push(detailView: DetailViewController) {
         view?.push(detailView: detailView)
+    }
+    
+    func updateView() {
+        view?.updateUI()
     }
 }
 

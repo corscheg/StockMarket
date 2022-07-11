@@ -10,41 +10,38 @@ import Foundation
 class FavoritesManager {
     private let key = "favorites"
     
-    private(set) var favorites: [Company] = []
-    private var favoriteTickers: [String] {
-        if let tickers = UserDefaults.standard.object(forKey: key) {
-            if let stringTickers = tickers as? [String] {
-                return stringTickers
-            } else {
-                fatalError("Wrong favorites type in UserDefaults!!!")
-            }
-        } else {
-            return []
-        }
-    }
+    private(set) var favorites: [Company]
     
     public static var shared = FavoritesManager()
     
-    private func fetchCompanies() {
-        favorites = []
-        for favoriteTicker in favoriteTickers {
-            Task {
-                try? await favorites.append(CompanyFetcher.shared.fetchCompany(with: favoriteTicker))
+    private init() {
+        if let companies = UserDefaults.standard.object(forKey: key) {
+            if let castedCompanies = companies as? [Company] {
+                favorites = castedCompanies
+            } else {
+                fatalError("Invalid favorites format!!!")
             }
+        } else {
+            favorites = [
+                Company(name: "Apple Inc", ticker: "AAPL", industry: "Technology"),
+                Company(name: "Microsoft Inc", ticker: "MSFT", industry: "Technology")
+            ]
         }
     }
-    
-    func save(_ ticker: String) {
-        UserDefaults.standard.set(favoriteTickers + [ticker], forKey: key)
-        fetchCompanies()
+
+    func save() {
+        UserDefaults.standard.set(favorites, forKey: key)
     }
     
-    func remove(_ ticker: String) {
-        var favorites = favoriteTickers
-        guard let index = favorites.firstIndex(of: ticker) else { return }
-        
-        favorites.remove(at: index)
-        UserDefaults.standard.set(favorites, forKey: key)
-        fetchCompanies()
+    func add(_ company: Company) {
+        favorites.append(company)
+        save()
+    }
+    
+    func remove(_ company: Company) {
+        if let index = favorites.firstIndex(of: company) {
+            favorites.remove(at: index)
+            save()
+        }
     }
 }
