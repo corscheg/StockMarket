@@ -58,6 +58,7 @@ class DetailViewController: UIViewController {
 //        logoImageView.layer.shadowOffset = .zero
         topHStack.addArrangedSubview(logoImageView)
         
+        logoImageView.heightAnchor.constraint(equalTo: topHStack.heightAnchor).isActive = true
         logoImageView.widthAnchor.constraint(equalTo: logoImageView.heightAnchor).isActive = true
         
         vStack = UIStackView()

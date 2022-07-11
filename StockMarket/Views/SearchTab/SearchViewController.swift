@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = UISearchController(searchResultsController: nil)
         
         
-        tableView = UITableView(frame: view.bounds)
+        tableView = UITableView(frame: view.bounds, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .systemGray6
         tableView.rowHeight = UITableView.automaticDimension
