@@ -8,12 +8,12 @@
 import Foundation
 
 class SearchPresenter {
-    var task: Task<Void, Never>?
+    private var task: Task<Void, Never>?
     
     weak var view: SearchViewController?
     
-    var resultTickers: [String] = []
-    var companies: [Company] = []
+    private var resultTickers: [String] = []
+    private(set) var companies: [Company] = []
 }
 
 extension SearchPresenter {
@@ -38,7 +38,7 @@ extension SearchPresenter {
     }
 }
 
-extension SearchPresenter {
+extension SearchPresenter: CompaniesListPresenter {
     func search(for ticker: String) {
         task?.cancel()
         task = nil

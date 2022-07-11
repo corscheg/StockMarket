@@ -25,6 +25,7 @@ class RootTabBar: UITabBarController {
         
         let svc = SearchViewController()
         svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        svc.presenter = SearchPresenter()
         let snc = UINavigationController(rootViewController: svc)
         snc.navigationBar.prefersLargeTitles = true
         vcs.append(snc)

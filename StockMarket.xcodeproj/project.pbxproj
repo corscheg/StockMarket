@@ -21,6 +21,7 @@
 		03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5FA2878513F00184A1A /* DetailPresenter.swift */; };
 		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
 		03CDE7FF2875C0A400E01968 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03CDE7FE2875C0A400E01968 /* key.txt */; };
+		03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */; };
 		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		03C6E5FA2878513F00184A1A /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
 		03CDE7FE2875C0A400E01968 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
+		03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListPresenter.swift; sourceTree = "<group>"; };
 		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +91,9 @@
 		03257470286E8C9D008DAF21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03C6E5F72878511300184A1A /* Detail */,
+				03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
+				03C6E5F72878511300184A1A /* Detail */,
 				0340044428731E8600860348 /* SearchTab */,
 			);
 			path = Views;
@@ -214,6 +217,7 @@
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
 				036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */,
+				03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */,
 				03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */,
 				036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */,
 				036CF1542875CB6E00489CFC /* Company.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    var presenter = SearchPresenter()
+    var presenter: CompaniesListPresenter!
     
     var tableView: UITableView!
     var indicatorView: UIActivityIndicatorView!
