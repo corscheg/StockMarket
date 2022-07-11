@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
         
         tableView = UITableView(frame: view.bounds)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .systemGray6
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50.0
         view.addSubview(tableView)

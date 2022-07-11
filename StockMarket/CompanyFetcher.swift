@@ -38,9 +38,6 @@ class CompanyFetcher: DataFetcher {
         
         company.logoImageData = imageData
         
-        // TODO: Remove debug print statement
-        print(company)
-        
         return company
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     var nameLabel: UILabel!
     var tickerLabel: UILabel!
     var industryLabel: UILabel!
+    var websiteButton: UIButton!
     
     override func loadView() {
         view = UIView()
@@ -94,6 +96,19 @@ class DetailViewController: UIViewController {
         industryLabel.textColor = .systemGray2
         industryLabel.textAlignment = .right
         hStack.addArrangedSubview(industryLabel)
+        
+        websiteButton = UIButton()
+        websiteButton.translatesAutoresizingMaskIntoConstraints = false
+        websiteButton.backgroundColor = .systemRed
+        websiteButton.layer.cornerCurve = .continuous
+        websiteButton.layer.cornerRadius = 10
+        websiteButton.addTarget(self, action: #selector(showWebsite), for: .touchUpInside)
+        view.addSubview(websiteButton)
+        
+        websiteButton.topAnchor.constraint(equalTo: topHStack.bottomAnchor, constant: 10).isActive = true
+        websiteButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
+        websiteButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
+        
     }
 
     override func viewDidLoad() {
@@ -101,6 +116,12 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
 
         notifyPresenterLoaded()
+    }
+    
+    @objc func showWebsite() {
+        if let url = company.websiteURL {
+            present(SFSafariViewController(url: url), animated: true)
+        }
     }
 }
 
@@ -116,6 +137,18 @@ extension DetailViewController {
         navigationItem.title = company.name
         tickerLabel.text = company.ticker
         industryLabel.text = company.industry
+        
+        
+        
+        if company.websiteURL == nil {
+            websiteButton.isEnabled = false
+            websiteButton.backgroundColor = .systemGray3
+            websiteButton.setTitle("Website is unavailable", for: .normal)
+        } else {
+            websiteButton.isEnabled = true
+            websiteButton.backgroundColor = .systemBlue
+            websiteButton.setTitle("Go to website", for: .normal)
+        }
         
         guard let imageData = company.logoImageData, let image = UIImage(data: imageData) else {
             logoImageView.image = UIImage(systemName: "photo")
