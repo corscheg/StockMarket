@@ -25,7 +25,7 @@ class SearchTableViewCell: UITableViewCell {
         hStack.translatesAutoresizingMaskIntoConstraints = false
         hStack.axis = .horizontal
         hStack.alignment = .center
-        hStack.distribution = .fill
+        hStack.distribution = .equalSpacing
         addSubview(hStack)
         
         hStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -43,7 +43,7 @@ class SearchTableViewCell: UITableViewCell {
         innerHStack.translatesAutoresizingMaskIntoConstraints = false
         innerHStack.axis = .horizontal
         innerHStack.alignment = .center
-        innerHStack.distribution = .fill
+        innerHStack.distribution = .equalSpacing
         innerHStack.spacing = 10
         innerHStack.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760), for: .horizontal)
         hStack.addArrangedSubview(innerHStack)
@@ -52,11 +52,14 @@ class SearchTableViewCell: UITableViewCell {
         tickerLabel.translatesAutoresizingMaskIntoConstraints = false
         tickerLabel.numberOfLines = 1
         tickerLabel.font = .preferredFont(forTextStyle: .subheadline)
+        tickerLabel.setContentCompressionResistancePriority(UILayoutPriority(770), for: .horizontal)
         innerHStack.addArrangedSubview(tickerLabel)
         
         star = UIImageView()
         star.translatesAutoresizingMaskIntoConstraints = false
         innerHStack.addArrangedSubview(star)
+        
+        star.widthAnchor.constraint(equalTo: star.heightAnchor).isActive = true
         
     }
     
