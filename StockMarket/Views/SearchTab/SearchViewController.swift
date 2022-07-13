@@ -105,6 +105,11 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         cancelSearch()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        cancelSearch()
+    }
+    
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
