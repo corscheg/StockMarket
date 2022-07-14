@@ -18,7 +18,7 @@ class DataFetcher {
     
     init() {
         guard let keyURL = Bundle.main.url(forResource: "key", withExtension: "txt"), let key = try? String(contentsOf: keyURL) else {
-            fatalError()
+            fatalError("There are no key.txt file in the bundle!!!")
         }
         apiKey = key.trimmingCharacters(in: .whitespacesAndNewlines)
         

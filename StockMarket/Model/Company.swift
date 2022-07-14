@@ -15,6 +15,7 @@ struct Company: Codable, Hashable {
         case industry = "finnhubIndustry"
         case logoURL = "logo"
         case websiteURL = "weburl"
+        case logoImageData
         
     }
     
