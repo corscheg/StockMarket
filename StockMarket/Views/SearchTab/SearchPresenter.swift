@@ -34,10 +34,6 @@ extension SearchPresenter {
     private func stopNetworkingIndication() {
         view?.stopNetworkingIndication()
     }
-    
-    private func push(detailView: DetailViewController) {
-        view?.push(detailView: detailView)
-    }
 }
 
 extension SearchPresenter: CompaniesListPresenter {
@@ -90,16 +86,6 @@ extension SearchPresenter: CompaniesListPresenter {
         companies = []
         updateView()
         stopNetworkingIndication()
-    }
-    
-    func initiateDetail(at index: Int) {
-        let presenter = DetailPresenter(company: companies[index])
-        let vc = DetailViewController()
-        
-        vc.presenter = presenter
-        presenter.view = vc
-        
-        push(detailView: vc)
     }
     
     func updateFavorites() {

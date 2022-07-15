@@ -16,4 +16,22 @@ protocol CompaniesListPresenter {
     func cancelSearch()
     func initiateDetail(at index: Int)
     func updateFavorites()
+    
+    func push(detailView: DetailViewController)
+}
+
+extension CompaniesListPresenter {
+    internal func push(detailView: DetailViewController) {
+        view?.push(detailView: detailView)
+    }
+    
+    func initiateDetail(at index: Int) {
+        let presenter = DetailPresenter(company: companies[index])
+        let vc = DetailViewController()
+        
+        vc.presenter = presenter
+        presenter.view = vc
+        
+        push(detailView: vc)
+    }
 }

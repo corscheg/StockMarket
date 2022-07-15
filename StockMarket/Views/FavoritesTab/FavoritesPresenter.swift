@@ -26,11 +26,7 @@ class FavoritesPresenter: CompaniesListPresenter {
 }
 
 extension FavoritesPresenter {
-    func push(detailView: DetailViewController) {
-        view?.push(detailView: detailView)
-    }
-    
-    func updateView() {
+    private func updateView() {
         view?.updateUI()
     }
 }
@@ -44,15 +40,7 @@ extension FavoritesPresenter {
         
     }
     
-    func initiateDetail(at index: Int) {
-        let presenter = DetailPresenter(company: companies[index])
-        let vc = DetailViewController()
-        
-        vc.presenter = presenter
-        presenter.view = vc
-        
-        push(detailView: vc)
-    }
+    
     
     func updateFavorites() {
         companies = FavoritesManager.shared.favorites
