@@ -14,8 +14,14 @@ class FavoritesPresenter: CompaniesListPresenter {
     private(set) var viewTitle = "Favorites"
     
     init() {
-        companies = FavoritesManager.shared.favorites
-        updateView()
+        Task {
+            await FavoritesManager.shared.refreshData()
+            companies = FavoritesManager.shared.favorites
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.updateView()
+            }
+        }
     }
 }
 
