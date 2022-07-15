@@ -50,9 +50,9 @@ class FavoritesManager {
         
         for i in 0..<tickers.count {
             if let new = try? await CompanyFetcher.shared.fetchCompany(with: tickers[i]) {
-                refreshed[i] = new
+                refreshed.append(new)
             } else {
-                refreshed[i] = favorites[i]
+                refreshed.append(favorites[i])
             }
         }
         
