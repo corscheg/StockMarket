@@ -54,11 +54,6 @@ class DetailViewController: UIViewController {
         logoImageView.layer.borderWidth = 2
         logoImageView.layer.borderColor = UIColor.systemGray2.cgColor
         logoImageView.setContentHuggingPriority(UILayoutPriority(260), for: .horizontal)
-//        logoImageView.layer.shadowColor = UIColor.black.cgColor
-//        logoImageView.layer.shadowRadius = 10
-//        logoImageView.layer.shadowOpacity = 1
-//        logoImageView.layer.shadowPath = UIBezierPath(rect: logoImageView.bounds).cgPath
-//        logoImageView.layer.shadowOffset = .zero
         topHStack.addArrangedSubview(logoImageView)
         
         logoImageView.heightAnchor.constraint(equalTo: topHStack.heightAnchor).isActive = true
