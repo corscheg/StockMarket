@@ -38,7 +38,9 @@ class FavoritesManager {
     }
     
     func remove(_ company: Company) {
-        if let index = favorites.firstIndex(of: company) {
+        let tickers = favorites.map { $0.ticker }
+        
+        if let index = tickers.firstIndex(of: company.ticker) {
             favorites.remove(at: index)
             save()
         }
