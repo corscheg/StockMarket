@@ -10,3 +10,9 @@ import Foundation
 class MorePresenter {
     weak var view: MoreViewController?
 }
+
+extension MorePresenter {
+    func clearFavorites() {
+        FavoritesManager.shared.clearAll()
+    }
+}

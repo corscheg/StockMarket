@@ -46,6 +46,11 @@ class FavoritesManager {
         }
     }
     
+    func clearAll() {
+        favorites = []
+        save()
+    }
+    
     func refreshData() async {
         let tickers = favorites.map { $0.ticker }
         var refreshed = [Company]()
