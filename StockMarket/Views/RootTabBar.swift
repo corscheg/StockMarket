@@ -42,10 +42,12 @@ class RootTabBar: UITabBarController {
         snc.navigationBar.prefersLargeTitles = true
         vcs.append(snc)
         
-        let vc1 = UIViewController()
-        vc1.view.backgroundColor = .systemCyan
-        vc1.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
-        vcs.append(vc1)
+        let mvc = MoreViewController()
+        mvc.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
+        mvc.presenter = MorePresenter()
+        let mnc = UINavigationController(rootViewController: mvc)
+        mnc.navigationBar.prefersLargeTitles = true
+        vcs.append(mnc)
         
         viewControllers = vcs
     }

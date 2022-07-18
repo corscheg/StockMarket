@@ -16,6 +16,8 @@
 		036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15B2875D0B600489CFC /* DataFetcher.swift */; };
 		036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */; };
 		036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1612875DCC400489CFC /* SearchTableViewCell.swift */; };
+		038DA8CA2885BE1500C8EF84 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DA8C92885BE1500C8EF84 /* MoreViewController.swift */; };
+		038DA8CC2885BEDB00C8EF84 /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DA8CB2885BEDB00C8EF84 /* MorePresenter.swift */; };
 		03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5F82878513300184A1A /* DetailViewController.swift */; };
 		03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5FA2878513F00184A1A /* DetailPresenter.swift */; };
 		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
@@ -39,6 +41,8 @@
 		036CF15B2875D0B600489CFC /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsFetcher.swift; sourceTree = "<group>"; };
 		036CF1612875DCC400489CFC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		038DA8C92885BE1500C8EF84 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		038DA8CB2885BEDB00C8EF84 /* MorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		03C6E5F82878513300184A1A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		03C6E5FA2878513F00184A1A /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
@@ -98,9 +102,10 @@
 			children = (
 				03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
-				03E238E9287C665E001E0577 /* FavoritesTab */,
 				03C6E5F72878511300184A1A /* Detail */,
+				03E238E9287C665E001E0577 /* FavoritesTab */,
 				0340044428731E8600860348 /* SearchTab */,
+				038DA8C82885BDD000C8EF84 /* More */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +118,15 @@
 				0340044D2873308E00860348 /* SearchPresenter.swift */,
 			);
 			path = SearchTab;
+			sourceTree = "<group>";
+		};
+		038DA8C82885BDD000C8EF84 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				038DA8C92885BE1500C8EF84 /* MoreViewController.swift */,
+				038DA8CB2885BEDB00C8EF84 /* MorePresenter.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		03C6E5F72878511300184A1A /* Detail */ = {
@@ -227,10 +241,12 @@
 				0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */,
 				03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */,
 				0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */,
+				038DA8CA2885BE1500C8EF84 /* MoreViewController.swift in Sources */,
 				03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */,
 				03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */,
 				03E238EB287C6680001E0577 /* FavoritesPresenter.swift in Sources */,
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
+				038DA8CC2885BEDB00C8EF84 /* MorePresenter.swift in Sources */,
 				03257472286E8CB0008DAF21 /* RootTabBar.swift in Sources */,
 				036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */,
 				03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */,
