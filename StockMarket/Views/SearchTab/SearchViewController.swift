@@ -184,4 +184,9 @@ extension SearchViewController {
         navigationController?.pushViewController(view, animated: true)
     }
     
+    func showErrorAlert(with message: String) {
+        let ac = UIAlertController(title: "Networking error", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
 }

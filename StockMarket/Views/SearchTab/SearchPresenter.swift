@@ -34,6 +34,10 @@ extension SearchPresenter {
     private func stopNetworkingIndication() {
         view?.stopNetworkingIndication()
     }
+    
+    private func showErrorAlert(with message: String) {
+        view?.showErrorAlert(with: message)
+    }
 }
 
 extension SearchPresenter: CompaniesListPresenter {
@@ -74,8 +78,10 @@ extension SearchPresenter: CompaniesListPresenter {
                     self?.stopNetworkingIndication()
                 }
             } catch {
-                // TODO: Replace debug print statement
-                print(error)
+                DispatchQueue.main.async { [weak self] in
+                    self?.showErrorAlert(with: error.localizedDescription)
+                    self?.stopNetworkingIndication()
+                }
             }
         }
     }
