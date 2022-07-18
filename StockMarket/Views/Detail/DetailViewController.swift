@@ -151,6 +151,11 @@ class DetailViewController: UIViewController {
         notifyPresenterLoaded()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     @objc func showWebsite() {
         if let url = company.websiteURL {
             present(SFSafariViewController(url: url), animated: true)
