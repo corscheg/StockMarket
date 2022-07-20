@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
     var star: UIImageView!
     var addRemoveFavoriteButton: UIButton!
     
+    var pricesStack: UIStackView!
+    
     override func loadView() {
         view = UIView()
         view.backgroundColor = .systemGray6
@@ -137,6 +139,25 @@ class DetailViewController: UIViewController {
         addRemoveFavoriteButton.setTitle("Hi", for: .normal)
         favStack.addArrangedSubview(addRemoveFavoriteButton)
         
+        pricesStack = UIStackView()
+        pricesStack.translatesAutoresizingMaskIntoConstraints = false
+        pricesStack.axis = .vertical
+        pricesStack.alignment = .center
+        pricesStack.distribution = .equalSpacing
+        pricesStack.spacing = 8
+        view.addSubview(pricesStack)
+        
+        for _ in 1...7 {
+            let psv = PriceStackView()
+            pricesStack.addArrangedSubview(psv)
+            
+            psv.leftAnchor.constraint(equalTo: pricesStack.leftAnchor).isActive = true
+            psv.rightAnchor.constraint(equalTo: pricesStack.rightAnchor).isActive = true
+        }
+        
+        pricesStack.topAnchor.constraint(equalTo: favStack.bottomAnchor, constant: 20).isActive = true
+        pricesStack.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
+        pricesStack.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
     }
 
     override func viewDidLoad() {
@@ -175,6 +196,29 @@ extension DetailViewController {
         tickerLabel.text = company.ticker
         industryLabel.text = company.industry
         
+        if let day = company.today {
+            if let stack = pricesStack.arrangedSubviews[0] as? PriceStackView {
+                stack.set(price: day.current, for: "Price")
+            }
+            if let stack = pricesStack.arrangedSubviews[1] as? PriceStackView {
+                stack.set(price: day.delta, for: "Delta")
+            }
+            if let stack = pricesStack.arrangedSubviews[2] as? PriceStackView {
+                stack.set(price: day.deltaPercent, for: "Delta Percent")
+            }
+            if let stack = pricesStack.arrangedSubviews[3] as? PriceStackView {
+                stack.set(price: day.open, for: "Open")
+            }
+            if let stack = pricesStack.arrangedSubviews[4] as? PriceStackView {
+                stack.set(price: day.low, for: "Low")
+            }
+            if let stack = pricesStack.arrangedSubviews[5] as? PriceStackView {
+                stack.set(price: day.high, for: "High")
+            }
+            if let stack = pricesStack.arrangedSubviews[6] as? PriceStackView {
+                stack.set(price: day.previousClose, for: "Previous Close")
+            }
+        }
         
         
         if company.websiteURL == nil {
