@@ -25,6 +25,7 @@ struct Company: Codable, Hashable {
     var logoURL: URL?
     var logoImageData: Data?
     var websiteURL: URL?
+    var today: TradingDay?
     
     var isFavorite: Bool {
         FavoritesManager.shared.isFavoriteBy(ticker: ticker)

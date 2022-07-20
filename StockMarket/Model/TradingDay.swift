@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TradingDay: Codable {
+struct TradingDay: Codable, Hashable {
     enum CodingKeys: String, CodingKey {
         case current = "c"
         case delta = "d"

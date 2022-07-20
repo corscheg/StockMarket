@@ -29,6 +29,9 @@ class PricesFetcher: DataFetcher {
         
         let day = try JSONDecoder().decode(TradingDay.self, from: data)
         
+        // TODO: Remove print debug statement
+        print(day)
+        
         return day
         
     }

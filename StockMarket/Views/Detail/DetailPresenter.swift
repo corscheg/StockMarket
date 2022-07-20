@@ -14,6 +14,23 @@ class DetailPresenter {
     
     init(company: Company) {
         self.company = company
+        
+        Task {
+            do {
+                let day = try await PricesFetcher.shared.fetchPrices(for: company.ticker)
+                self.company.today = day
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.setCompanyIntoView()
+                    self?.updateView()
+                }
+                
+            } catch {
+                
+                // TODO: Add error AlertController
+                print(error)
+            }
+        }
     }
 }
 
