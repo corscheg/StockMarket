@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0307B12328881F93009F5E14 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307B12228881F93009F5E14 /* News.swift */; };
 		0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325745C286E8ACA008DAF21 /* AppDelegate.swift */; };
 		0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0325745E286E8ACA008DAF21 /* SceneDelegate.swift */; };
 		03257466286E8ACB008DAF21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03257465286E8ACB008DAF21 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0307B12228881F93009F5E14 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		03257459286E8ACA008DAF21 /* StockMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0325745C286E8ACA008DAF21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0325745E286E8ACA008DAF21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				03E238EC287C708B001E0577 /* FavoritesManager.swift */,
 				036CF1532875CB6E00489CFC /* Company.swift */,
 				0333ED362887F2AD004A7FDE /* TradingDay.swift */,
+				0307B12228881F93009F5E14 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				036CF1622875DCC400489CFC /* SearchTableViewCell.swift in Sources */,
 				03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */,
 				03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */,
+				0307B12328881F93009F5E14 /* News.swift in Sources */,
 				036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */,
 				036CF1542875CB6E00489CFC /* Company.swift in Sources */,
 			);
