@@ -16,6 +16,8 @@ class SearchPresenter {
     private(set) var companies: [Company] = []
     
     private(set) var viewTitle = "Search"
+    
+    private var needsAlert = true
 }
 
 extension SearchPresenter {
@@ -47,6 +49,7 @@ extension SearchPresenter: CompaniesListPresenter {
         companies = []
         updateView()
         startNetworkingIndication()
+        needsAlert = true
         
         task = Task {
             do {
@@ -78,15 +81,20 @@ extension SearchPresenter: CompaniesListPresenter {
                     self?.stopNetworkingIndication()
                 }
             } catch {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showErrorAlert(with: error.localizedDescription)
-                    self?.stopNetworkingIndication()
+                if needsAlert {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.showErrorAlert(with: error.localizedDescription)
+                        self?.stopNetworkingIndication()
+                    }
                 }
             }
         }
     }
     
     func cancelSearch() {
+        if task != nil {
+            needsAlert = false
+        }
         task?.cancel()
         task = nil
         companies = []
