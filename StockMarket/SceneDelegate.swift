@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
+        // Initiating of the root ViewController (RootTabBar - a subclass of UITabBarController)
         let tabBarController = RootTabBar()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
