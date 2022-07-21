@@ -15,22 +15,22 @@ class DetailViewController: UIViewController {
     var presenter: DetailPresenter!
     
     /// A company ViewController presents.
-    var company: Company!
+    private var company: Company!
     
-    var topHStack: UIStackView!
-    var vStack: UIStackView!
-    var hStack: UIStackView!
-    var favStack: UIStackView!
+    private var topHStack: UIStackView!
+    private var vStack: UIStackView!
+    private var hStack: UIStackView!
+    private var favStack: UIStackView!
     
-    var logoImageView: UIImageView!
-    var nameLabel: UILabel!
-    var tickerLabel: UILabel!
-    var industryLabel: UILabel!
-    var websiteButton: UIButton!
-    var star: UIImageView!
-    var addRemoveFavoriteButton: UIButton!
+    private var logoImageView: UIImageView!
+    private var nameLabel: UILabel!
+    private var tickerLabel: UILabel!
+    private var industryLabel: UILabel!
+    private var websiteButton: UIButton!
+    private var star: UIImageView!
+    private var addRemoveFavoriteButton: UIButton!
     
-    var pricesStack: UIStackView!
+    private var pricesStack: UIStackView!
     
     override func loadView() {
         view = UIView()
