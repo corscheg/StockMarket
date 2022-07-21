@@ -7,8 +7,9 @@
 
 import Foundation
 
+/// A struct that represents intraday prices for some company.
 struct TradingDay: Codable, Hashable {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case current = "c"
         case delta = "d"
         case deltaPercent = "dp"
@@ -18,11 +19,24 @@ struct TradingDay: Codable, Hashable {
         case previousClose = "pc"
     }
     
+    /// The latest price.
     let current: Double
+    
+    /// Change of the price
     let delta: Double
+    
+    /// Percent change
     let deltaPercent: Double
+    
+    /// The intraday high.
     let high: Double
+    
+    /// The intraday low.
     let low: Double
+    
+    /// The open price.
     let open: Double
+    
+    /// The previous day close price.
     let previousClose: Double
 }

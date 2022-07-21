@@ -10,7 +10,7 @@ import Foundation
 /// A class used for searching companies by a query.
 final class SearchResultsFetcher: DataFetcher {
     
-    /// A struct used to decode the inner part of the JSON.
+    // A struct used to decode the inner part of the JSON.
     private struct SearchResult: Decodable {
         enum CodingKeys: String, CodingKey {
             case ticker = "displaySymbol"
@@ -18,7 +18,7 @@ final class SearchResultsFetcher: DataFetcher {
         var ticker: String
     }
 
-    /// A struct used to decode the outer part of the JSON.
+    // A struct used to decode the outer part of the JSON.
     private struct SearchResults: Decodable {
         enum CodingKeys: String, CodingKey {
             case results = "result"
