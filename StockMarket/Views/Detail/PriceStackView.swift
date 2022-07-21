@@ -9,8 +9,8 @@ import UIKit
 
 /// A view that is used for displaying a price with it's label.
 class PriceStackView: UIStackView {
-    var label: UILabel
-    var price: UILabel
+    private var label: UILabel
+    private var price: UILabel
     
     /// Initializes an empty view.
     init() {
