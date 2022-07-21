@@ -7,10 +7,12 @@
 
 import UIKit
 
+/// A ViewController for the last tab.
 class MoreViewController: UIViewController {
     
-    var tableView: UITableView!
+    private var tableView: UITableView!
     
+    /// A presenter that provides data and methods.
     var presenter: MorePresenter!
     
     override func loadView() {
@@ -61,6 +63,8 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MoreViewController {
+    
+    /// Ask a user for confirmation and clear favorites.
     private func clearFavoritesTapped() {
         let ac = UIAlertController(title: "Remove all favorites?", message: "You are about to clear your favorite companies.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
@@ -72,6 +76,8 @@ extension MoreViewController {
 }
 
 extension MoreViewController {
+    
+    /// Clear favorites.
     private func clearFavorites() {
         presenter.clearFavorites()
     }
