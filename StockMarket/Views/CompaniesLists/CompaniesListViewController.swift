@@ -8,7 +8,7 @@
 import UIKit
 
 /// A ViewController responsible for lists of companies.
-class SearchViewController: UIViewController {
+class CompaniesListViewController: UIViewController {
     
     /// A presenter of data.
     var presenter: CompaniesListPresenter!
@@ -101,7 +101,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
+extension CompaniesListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         search(for: navigationItem.searchController?.searchBar.text ?? "")
     }
@@ -116,7 +116,7 @@ extension SearchViewController: UISearchBarDelegate {
     
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+extension CompaniesListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -138,7 +138,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension SearchViewController {
+extension CompaniesListViewController {
     
     /// Provide a company for a certain index in the list.
     private func company(forIndex index: Int) -> Company {
@@ -169,7 +169,7 @@ extension SearchViewController {
     }
 }
 
-extension SearchViewController {
+extension CompaniesListViewController {
     
     /// Refresh the view's state.
     func updateUI() {

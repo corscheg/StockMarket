@@ -14,7 +14,7 @@ protocol CompaniesListPresenter {
     var companies: [Company] { get }
     
     /// A reference to a ViewController.
-    var view: SearchViewController? { get set }
+    var view: CompaniesListViewController? { get set }
     
     /// A title for the page.
     var viewTitle: String { get }

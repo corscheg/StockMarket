@@ -16,6 +16,7 @@
 		0333ED392887F3CF004A7FDE /* PricesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333ED382887F3CF004A7FDE /* PricesFetcher.swift */; };
 		0333ED3B2887FEB2004A7FDE /* PriceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333ED3A2887FEB2004A7FDE /* PriceStackView.swift */; };
 		0340044E2873308E00860348 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340044D2873308E00860348 /* SearchPresenter.swift */; };
+		0358377928898E09001B8CBB /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358377828898E09001B8CBB /* CompanyFetcher.swift */; };
 		036CF1542875CB6E00489CFC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF1532875CB6E00489CFC /* Company.swift */; };
 		036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15B2875D0B600489CFC /* DataFetcher.swift */; };
 		036CF15E2875D30B00489CFC /* SearchResultsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */; };
@@ -24,13 +25,12 @@
 		038DA8CC2885BEDB00C8EF84 /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DA8CB2885BEDB00C8EF84 /* MorePresenter.swift */; };
 		03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5F82878513300184A1A /* DetailViewController.swift */; };
 		03C6E5FB2878513F00184A1A /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6E5FA2878513F00184A1A /* DetailPresenter.swift */; };
-		03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */; };
 		03CDE7FF2875C0A400E01968 /* key.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03CDE7FE2875C0A400E01968 /* key.txt */; };
 		03DBB412287C81D800DF2BB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DBB411287C81D800DF2BB8 /* LaunchScreen.storyboard */; };
 		03E238E8287C6477001E0577 /* CompaniesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */; };
 		03E238EB287C6680001E0577 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238EA287C6680001E0577 /* FavoritesPresenter.swift */; };
 		03E238ED287C708B001E0577 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E238EC287C708B001E0577 /* FavoritesManager.swift */; };
-		03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* SearchViewController.swift */; };
+		03F332CC2872C4C200E9F457 /* CompaniesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F332CB2872C4C100E9F457 /* CompaniesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +45,7 @@
 		0333ED382887F3CF004A7FDE /* PricesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesFetcher.swift; sourceTree = "<group>"; };
 		0333ED3A2887FEB2004A7FDE /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
 		0340044D2873308E00860348 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		0358377828898E09001B8CBB /* CompanyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyFetcher.swift; sourceTree = "<group>"; };
 		036CF1532875CB6E00489CFC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		036CF15B2875D0B600489CFC /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsFetcher.swift; sourceTree = "<group>"; };
@@ -53,13 +54,12 @@
 		038DA8CB2885BEDB00C8EF84 /* MorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		03C6E5F82878513300184A1A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		03C6E5FA2878513F00184A1A /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
-		03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompanyFetcher.swift; path = StockMarket/CompanyFetcher.swift; sourceTree = SOURCE_ROOT; };
 		03CDE7FE2875C0A400E01968 /* key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.txt; sourceTree = "<group>"; };
 		03DBB411287C81D800DF2BB8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListPresenter.swift; sourceTree = "<group>"; };
 		03E238EA287C6680001E0577 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		03E238EC287C708B001E0577 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
-		03F332CB2872C4C100E9F457 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		03F332CB2872C4C100E9F457 /* CompaniesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +108,9 @@
 		03257470286E8C9D008DAF21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */,
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
+				0358377728898C69001B8CBB /* CompaniesLists */,
 				03C6E5F72878511300184A1A /* Detail */,
-				03E238E9287C665E001E0577 /* FavoritesTab */,
-				0340044428731E8600860348 /* SearchTab */,
 				038DA8C82885BDD000C8EF84 /* More */,
 			);
 			path = Views;
@@ -121,11 +119,21 @@
 		0340044428731E8600860348 /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
-				03F332CB2872C4C100E9F457 /* SearchViewController.swift */,
 				036CF1612875DCC400489CFC /* SearchTableViewCell.swift */,
 				0340044D2873308E00860348 /* SearchPresenter.swift */,
 			);
 			path = SearchTab;
+			sourceTree = "<group>";
+		};
+		0358377728898C69001B8CBB /* CompaniesLists */ = {
+			isa = PBXGroup;
+			children = (
+				03E238E7287C6477001E0577 /* CompaniesListPresenter.swift */,
+				03F332CB2872C4C100E9F457 /* CompaniesListViewController.swift */,
+				0340044428731E8600860348 /* SearchTab */,
+				03E238E9287C665E001E0577 /* FavoritesTab */,
+			);
+			path = CompaniesLists;
 			sourceTree = "<group>";
 		};
 		038DA8C82885BDD000C8EF84 /* More */ = {
@@ -150,10 +158,11 @@
 		03CDE7FB2875BFF200E01968 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				03CDE7FC2875C00800E01968 /* CompanyFetcher.swift */,
+				0358377828898E09001B8CBB /* CompanyFetcher.swift */,
 				036CF15D2875D30B00489CFC /* SearchResultsFetcher.swift */,
 				036CF15B2875D0B600489CFC /* DataFetcher.swift */,
 				0333ED382887F3CF004A7FDE /* PricesFetcher.swift */,
+				03E238EC287C708B001E0577 /* FavoritesManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -169,7 +178,6 @@
 		03F332CF2872C8D200E9F457 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				03E238EC287C708B001E0577 /* FavoritesManager.swift */,
 				036CF1532875CB6E00489CFC /* Company.swift */,
 				0333ED362887F2AD004A7FDE /* TradingDay.swift */,
 				0307B12228881F93009F5E14 /* News.swift */,
@@ -251,14 +259,14 @@
 				036CF15C2875D0B600489CFC /* DataFetcher.swift in Sources */,
 				03E238ED287C708B001E0577 /* FavoritesManager.swift in Sources */,
 				0325745D286E8ACA008DAF21 /* AppDelegate.swift in Sources */,
+				0358377928898E09001B8CBB /* CompanyFetcher.swift in Sources */,
 				0333ED3B2887FEB2004A7FDE /* PriceStackView.swift in Sources */,
 				03C6E5F92878513300184A1A /* DetailViewController.swift in Sources */,
 				0325745F286E8ACA008DAF21 /* SceneDelegate.swift in Sources */,
 				038DA8CA2885BE1500C8EF84 /* MoreViewController.swift in Sources */,
 				0333ED392887F3CF004A7FDE /* PricesFetcher.swift in Sources */,
-				03F332CC2872C4C200E9F457 /* SearchViewController.swift in Sources */,
+				03F332CC2872C4C200E9F457 /* CompaniesListViewController.swift in Sources */,
 				0333ED372887F2AD004A7FDE /* TradingDay.swift in Sources */,
-				03CDE7FD2875C00800E01968 /* CompanyFetcher.swift in Sources */,
 				03E238EB287C6680001E0577 /* FavoritesPresenter.swift in Sources */,
 				0340044E2873308E00860348 /* SearchPresenter.swift in Sources */,
 				038DA8CC2885BEDB00C8EF84 /* MorePresenter.swift in Sources */,

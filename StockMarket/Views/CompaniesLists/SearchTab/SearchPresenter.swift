@@ -13,7 +13,7 @@ class SearchPresenter {
     /// A task used for networking.
     private var task: Task<Void, Never>?
     
-    weak var view: SearchViewController?
+    weak var view: CompaniesListViewController?
 
     private(set) var companies: [Company] = []
     

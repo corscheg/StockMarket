@@ -32,7 +32,7 @@ class RootTabBar: UITabBarController {
         vcs.append(vc0)
         
         // Initialize and append a Favorites Tab
-        let fvc = SearchViewController()
+        let fvc = CompaniesListViewController()
         fvc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         fvc.presenter = FavoritesPresenter()
         let fnc = UINavigationController(rootViewController: fvc)
@@ -40,7 +40,7 @@ class RootTabBar: UITabBarController {
         vcs.append(fnc)
         
         // Initialize and append a Search Tab
-        let svc = SearchViewController()
+        let svc = CompaniesListViewController()
         svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
         svc.presenter = SearchPresenter()
         let snc = UINavigationController(rootViewController: svc)

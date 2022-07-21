@@ -14,7 +14,7 @@ class FavoritesPresenter: CompaniesListPresenter {
     
     /// An array of all favorite companies.
     private var unfilteredCompanies: [Company] = []
-    weak var view: SearchViewController?
+    weak var view: CompaniesListViewController?
     
     private(set) var viewTitle = "Favorites"
     
