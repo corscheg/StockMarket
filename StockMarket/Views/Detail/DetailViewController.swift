@@ -8,10 +8,13 @@
 import UIKit
 import SafariServices
 
+/// A ViewController that presents a detais about a company at the separate page.
 class DetailViewController: UIViewController {
     
+    /// A presenter used to manage data.
     var presenter: DetailPresenter!
     
+    /// A company ViewController presents.
     var company: Company!
     
     var topHStack: UIStackView!
@@ -33,6 +36,7 @@ class DetailViewController: UIViewController {
         view = UIView()
         view.backgroundColor = .systemGray6
         
+        // topHStack contains logo, name, ticker and industry of the company.
         topHStack = UIStackView()
         topHStack.translatesAutoresizingMaskIntoConstraints = false
         topHStack.axis = .horizontal
@@ -46,6 +50,7 @@ class DetailViewController: UIViewController {
         topHStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         topHStack.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+        // logoImageView shows the logo of the company.
         logoImageView = UIImageView()
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.backgroundColor = .white
@@ -61,6 +66,7 @@ class DetailViewController: UIViewController {
         logoImageView.heightAnchor.constraint(equalTo: topHStack.heightAnchor).isActive = true
         logoImageView.widthAnchor.constraint(equalTo: logoImageView.heightAnchor).isActive = true
         
+        // vStack contains name, ticker and industry of the company.
         vStack = UIStackView()
         vStack.translatesAutoresizingMaskIntoConstraints = false
         vStack.axis = .vertical
@@ -75,6 +81,7 @@ class DetailViewController: UIViewController {
         nameLabel.textAlignment = .left
         vStack.addArrangedSubview(nameLabel)
         
+        // hStack contains ticker and industry of the company.
         hStack = UIStackView()
         hStack.translatesAutoresizingMaskIntoConstraints = false
         hStack.axis = .horizontal
@@ -98,6 +105,7 @@ class DetailViewController: UIViewController {
         industryLabel.textAlignment = .right
         hStack.addArrangedSubview(industryLabel)
         
+        // A button that is used for reaching the website of the company.
         websiteButton = UIButton()
         websiteButton.translatesAutoresizingMaskIntoConstraints = false
         websiteButton.backgroundColor = .systemRed
@@ -110,6 +118,7 @@ class DetailViewController: UIViewController {
         websiteButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
         websiteButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
         
+        // favStack contains star representing whether the company is favorite, and button to switch that state.
         favStack = UIStackView()
         favStack.translatesAutoresizingMaskIntoConstraints = false
         favStack.axis = .horizontal
@@ -139,6 +148,7 @@ class DetailViewController: UIViewController {
         addRemoveFavoriteButton.setTitle("Hi", for: .normal)
         favStack.addArrangedSubview(addRemoveFavoriteButton)
         
+        // pricesStack contains intraday prices of the company.
         pricesStack = UIStackView()
         pricesStack.translatesAutoresizingMaskIntoConstraints = false
         pricesStack.axis = .vertical
@@ -147,6 +157,7 @@ class DetailViewController: UIViewController {
         pricesStack.spacing = 8
         view.addSubview(pricesStack)
         
+        // Fill the pricesStack with views containing particular price values
         for _ in 1...7 {
             let psv = PriceStackView()
             pricesStack.addArrangedSubview(psv)
@@ -164,6 +175,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
 
+        // Say presenter that it can manipulate the view
         notifyPresenterLoaded()
     }
     
@@ -173,29 +185,39 @@ class DetailViewController: UIViewController {
     }
     
     @objc func showWebsite() {
+        
+        // Show the company's website if URL exists.
         if let url = company.websiteURL {
             present(SFSafariViewController(url: url), animated: true)
         }
     }
     
     @objc func addRemoveTapped() {
+        
+        // Notify presenter that 'favorite' state must be changed
         switchFavorite()
     }
 }
 
 extension DetailViewController {
+    
+    /// Sets the company for displaying and updates UI.
     func set(company: Company) {
         self.company = company
         
         updateUI()
     }
     
+    /// Updates UI.
     func updateUI() {
+        
+        // Fill the labels with proper values.
         nameLabel.text = company.name
         navigationItem.title = company.name
         tickerLabel.text = company.ticker
         industryLabel.text = company.industry
         
+        // Fill the price views
         if let day = company.today {
             if let stack = pricesStack.arrangedSubviews[0] as? PriceStackView {
                 stack.set(price: day.current, for: "Price")
@@ -220,7 +242,7 @@ extension DetailViewController {
             }
         }
         
-        
+        // Sets the websiteButton state according to the availability of the URL.
         if company.websiteURL == nil {
             websiteButton.isEnabled = false
             websiteButton.backgroundColor = .systemGray3
@@ -231,6 +253,7 @@ extension DetailViewController {
             websiteButton.setTitle("Go to website", for: .normal)
         }
         
+        // Sets the 'favorite' section state according to the state of the company.
         if company.isFavorite {
             star.image = UIImage(systemName: "star.fill")
             addRemoveFavoriteButton.setTitle("Remove from Favorites", for: .normal)
@@ -239,6 +262,7 @@ extension DetailViewController {
             addRemoveFavoriteButton.setTitle("Add to Favorites", for: .normal)
         }
         
+        // Sets the logo image or a placeholder
         guard let imageData = company.logoImageData, let image = UIImage(data: imageData) else {
             logoImageView.image = UIImage(systemName: "photo")
             return
@@ -248,10 +272,13 @@ extension DetailViewController {
 }
 
 extension DetailViewController {
+    
+    /// Says presenter that ViewController is ready to manipulations.
     private func notifyPresenterLoaded() {
         presenter.isAbleToManipulate()
     }
     
+    /// Says presenter that it must switch 'favorite' state.
     private func switchFavorite() {
         presenter.switchFavorite()
     }

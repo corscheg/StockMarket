@@ -7,10 +7,12 @@
 
 import UIKit
 
+/// A view that is used for displaying a price with it's label.
 class PriceStackView: UIStackView {
     var label: UILabel
     var price: UILabel
     
+    /// Initializes an empty view.
     init() {
         label = UILabel()
         price = UILabel()
@@ -36,6 +38,9 @@ class PriceStackView: UIStackView {
         super.init(coder: coder)
     }
     
+    /// Sets view's fieds according to the price and description.
+    /// - Parameter price: A `Double` representing the price.
+    /// - Parameter description: A label.
     func set(price: Double, for description: String) {
         label.text = description
         self.price.text = String(price)
