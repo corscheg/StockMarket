@@ -7,16 +7,21 @@
 
 import UIKit
 
+/// A ViewController responsible for lists of companies.
 class SearchViewController: UIViewController {
     
+    /// A presenter of data.
     var presenter: CompaniesListPresenter!
     
-    var tableView: UITableView!
-    var indicatorView: UIActivityIndicatorView!
+    private var tableView: UITableView!
     
-    var notFoundView: UIStackView!
-    var noResults: UILabel!
-    var tryAnother: UILabel!
+    /// A view used for displaying of networking process.
+    private var indicatorView: UIActivityIndicatorView!
+    
+    /// A view used for indicating of empty search results.
+    private var notFoundView: UIStackView!
+    private var noResults: UILabel!
+    private var tryAnother: UILabel!
     
     
     override func loadView() {
@@ -92,7 +97,6 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
         askForUpdate()
     }
 }
@@ -135,10 +139,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SearchViewController {
+    
+    /// Provide a company for a certain index in the list.
     private func company(forIndex index: Int) -> Company {
         presenter.companies[index]
     }
     
+    /// Returns number of companies in the list.
     private func numberOfCompanies() -> Int {
         presenter.companies.count
     }
@@ -151,16 +158,20 @@ extension SearchViewController {
         presenter.cancelSearch()
     }
     
+    /// Ask presenter for pushing the detail view.
     private func openDetail(at index: Int) {
         presenter.initiateDetail(at: index)
     }
     
+    /// Ask presenter for data refreshing.
     private func askForUpdate() {
         presenter.update()
     }
 }
 
 extension SearchViewController {
+    
+    /// Refresh the view's state.
     func updateUI() {
         tableView.reloadData()
     }
@@ -175,15 +186,18 @@ extension SearchViewController {
         indicatorView.stopAnimating()
     }
     
+    /// Set the view's state to the one representing that there is not any matching companies.
     func updateNotFound() {
         notFoundView.isHidden = false
         tableView.isHidden = true
     }
     
+    /// Push the given `DetailViewController`.
     func push(detailView view: DetailViewController) {
         navigationController?.pushViewController(view, animated: true)
     }
     
+    /// Indicate that there is some error.
     func showErrorAlert(with message: String) {
         let ac = UIAlertController(title: "Networking error", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
