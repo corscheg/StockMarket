@@ -156,7 +156,7 @@ extension SearchViewController {
     }
     
     private func askForUpdate() {
-        presenter.updateFavorites()
+        presenter.update()
     }
 }
 

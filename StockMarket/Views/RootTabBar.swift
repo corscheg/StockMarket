@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// A TabBar that is used as a root ViewController of the App.
 class RootTabBar: UITabBarController {
 
     override func viewDidLoad() {
@@ -19,7 +20,7 @@ class RootTabBar: UITabBarController {
     
     
     // MARK: Just for ensure that the TabBarController works. To be filled with real ViewControllers later on.
-    func fillWithViewControllers() {
+    private func fillWithViewControllers() {
         
         var vcs: [UIViewController] = []
         
@@ -28,6 +29,7 @@ class RootTabBar: UITabBarController {
         vc0.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
         vcs.append(vc0)
         
+        // Initialize and append a Favorites Tab
         let fvc = SearchViewController()
         fvc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         fvc.presenter = FavoritesPresenter()
@@ -35,6 +37,7 @@ class RootTabBar: UITabBarController {
         fnc.navigationBar.prefersLargeTitles = true
         vcs.append(fnc)
         
+        // Initialize and append a Search Tab
         let svc = SearchViewController()
         svc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
         svc.presenter = SearchPresenter()
@@ -42,6 +45,7 @@ class RootTabBar: UITabBarController {
         snc.navigationBar.prefersLargeTitles = true
         vcs.append(snc)
         
+        // Initialize and append a More Tab
         let mvc = MoreViewController()
         mvc.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
         mvc.presenter = MorePresenter()
@@ -49,6 +53,7 @@ class RootTabBar: UITabBarController {
         mnc.navigationBar.prefersLargeTitles = true
         vcs.append(mnc)
         
+        // Set the TabBar's property to the assembled ViewControllers
         viewControllers = vcs
     }
 }

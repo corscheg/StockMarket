@@ -44,7 +44,7 @@ extension FavoritesPresenter {
         updateView()
     }
     
-    func updateFavorites() {
+    func update() {
         unfilteredCompanies = FavoritesManager.shared.favorites
         companies = unfilteredCompanies
         updateView()

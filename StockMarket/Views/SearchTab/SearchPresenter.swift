@@ -102,7 +102,7 @@ extension SearchPresenter: CompaniesListPresenter {
         stopNetworkingIndication()
     }
     
-    func updateFavorites() {
+    func update() {
         updateView()
     }
 }
