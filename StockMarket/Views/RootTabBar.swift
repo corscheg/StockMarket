@@ -20,6 +20,8 @@ class RootTabBar: UITabBarController {
     
     
     // MARK: Just for ensure that the TabBarController works. To be filled with real ViewControllers later on.
+    
+    /// Initiates a proper ViewControllers and filles the `viewControllers` property with them.
     private func fillWithViewControllers() {
         
         var vcs: [UIViewController] = []

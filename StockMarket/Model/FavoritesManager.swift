@@ -10,10 +10,10 @@ import Foundation
 /// A class responsible for storing favorite companies.
 class FavoritesManager {
     
-    // Key for storing favorites in UserDefaults
+    /// Key for storing favorites in UserDefaults.
     private let key = "favorites"
     
-    // An array fo favorite companies
+    /// An array for favorite companies.
     private(set) var favorites: [Company]
     
     /// The instance of `FavoritesManager` shared by all users.
@@ -41,7 +41,7 @@ class FavoritesManager {
         }
     }
 
-    // Saves current instance of favorites to UserDefaults
+    /// Saves current instance of favorites to UserDefaults.
     private func save() {
         if let data = try? JSONEncoder().encode(favorites) {
             UserDefaults.standard.set(data, forKey: key)
