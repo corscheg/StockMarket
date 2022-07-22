@@ -124,15 +124,17 @@ extension SearchPresenter: CompaniesListPresenter {
         if task != nil {
             needsAlert = false
             
-            // Make the list empty and update UI
+            // Make the list empty
             companies = []
+            
+            // Update UI
             updateView()
             stopNetworkingIndication()
             
             // Cancel the task
             task?.cancel()
             task = nil
-        }        
+        }
     }
     
     func reload() {

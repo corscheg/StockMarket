@@ -107,11 +107,15 @@ extension CompaniesListViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.isHidden = false
+        notFoundView.isHidden = true
         cancelSearch()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
+            tableView.isHidden = false
+            notFoundView.isHidden = true
             cancelSearch()
         }
     }
