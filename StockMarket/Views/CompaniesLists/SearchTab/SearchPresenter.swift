@@ -119,16 +119,16 @@ extension SearchPresenter: CompaniesListPresenter {
         // If there is a present task -- no error displaying needed (task interrupted by the user)
         if task != nil {
             needsAlert = false
-        }
-        
-        // Cancel the task
-        task?.cancel()
-        task = nil
-        
-        // Make the list empty and update UI
-        companies = []
-        updateView()
-        stopNetworkingIndication()
+            
+            // Make the list empty and update UI
+            companies = []
+            updateView()
+            stopNetworkingIndication()
+            
+            // Cancel the task
+            task?.cancel()
+            task = nil
+        }        
     }
     
     func update() {
