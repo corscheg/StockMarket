@@ -14,8 +14,8 @@ class RootTabBar: UITabBarController {
         super.viewDidLoad()
         
         fillWithViewControllers()
-        tabBar.backgroundColor = .lightGray
-        tabBar.alpha = 0.5
+//        tabBar.backgroundColor = .lightGray
+//        tabBar.alpha = 0.5
     }
     
     
