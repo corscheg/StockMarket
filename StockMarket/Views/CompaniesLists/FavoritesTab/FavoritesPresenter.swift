@@ -41,22 +41,33 @@ extension FavoritesPresenter {
     private func updateView() {
         view?.updateUI()
     }
+    
+    /// Reloads the whole UI.
+    private func reloadView() {
+        view?.reloadUI()
+    }
+    
+    /// Clears the search query.
+    private func clearQuery() {
+        view?.clearSearchQuery()
+    }
 }
 
 extension FavoritesPresenter {
     func search(for ticker: String) {
         companies = unfilteredCompanies.filter { $0.name.lowercased().contains(ticker.lowercased()) || $0.ticker.lowercased().contains(ticker.lowercased()) }
-        updateView()
+        reloadView()
     }
     
     func cancelSearch() {
         companies = unfilteredCompanies
-        updateView()
+        reloadView()
     }
     
-    func update() {
+    func reload() {
         unfilteredCompanies = FavoritesManager.shared.favorites
         companies = unfilteredCompanies
-        updateView()
+        reloadView()
+        clearQuery()
     }
 }

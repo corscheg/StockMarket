@@ -29,7 +29,7 @@ protocol CompaniesListPresenter {
     func initiateDetail(at index: Int)
     
     /// Updates the underlying data.
-    func update()
+    func reload()
     
     /// Pushes a DetailViewController.
     func push(detailView: DetailViewController)

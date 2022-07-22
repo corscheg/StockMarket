@@ -111,7 +111,9 @@ extension CompaniesListViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        cancelSearch()
+        if searchText == "" {
+            cancelSearch()
+        }
     }
     
 }
@@ -165,7 +167,7 @@ extension CompaniesListViewController {
     
     /// Ask presenter for data refreshing.
     private func askForUpdate() {
-        presenter.update()
+        presenter.reload()
     }
 }
 
@@ -173,7 +175,15 @@ extension CompaniesListViewController {
     
     /// Refresh the view's state.
     func updateUI() {
-        tableView.reloadData()
+        if numberOfCompanies() == 0 {
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        } else {
+            tableView.insertRows(at: [IndexPath(row: numberOfCompanies() - 1, section: 0)], with: .left)
+        }
+    }
+    
+    func reloadUI() {
+        tableView.reloadSections(IndexSet(integer: 0), with: .fade)
     }
     
     func startNetworkingIndication() {
@@ -202,5 +212,10 @@ extension CompaniesListViewController {
         let ac = UIAlertController(title: "Networking error", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
+    }
+    
+    /// Clears the Search Bar.
+    func clearSearchQuery() {
+        navigationItem.searchController?.searchBar.text = ""
     }
 }

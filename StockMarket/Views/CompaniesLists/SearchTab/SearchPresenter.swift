@@ -28,6 +28,10 @@ extension SearchPresenter {
         view?.updateUI()
     }
     
+    private func reloadView() {
+        view?.reloadUI()
+    }
+    
     private func updateViewNotFound() {
         view?.updateNotFound()
     }
@@ -131,7 +135,7 @@ extension SearchPresenter: CompaniesListPresenter {
         }        
     }
     
-    func update() {
-        updateView()
+    func reload() {
+        reloadView()
     }
 }
