@@ -8,7 +8,7 @@
 import UIKit
 
 /// A table view cell for displaying a company.
-class SearchTableViewCell: UITableViewCell {
+class CompaniesListTableViewCell: UITableViewCell {
 
     private var nameLabel: UILabel!
     private var tickerLabel: UILabel!

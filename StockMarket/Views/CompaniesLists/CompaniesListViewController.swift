@@ -91,7 +91,7 @@ class CompaniesListViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "Result")
+        tableView.register(CompaniesListTableViewCell.self, forCellReuseIdentifier: "Result")
         
         
     }
@@ -129,7 +129,7 @@ extension CompaniesListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Result")! as! CompaniesListTableViewCell
         cell.configure(for: company(forIndex: indexPath.row))
         return cell
     }
