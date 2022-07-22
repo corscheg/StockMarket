@@ -30,7 +30,9 @@ class DetailViewController: UIViewController {
     private var star: UIImageView!
     private var addRemoveFavoriteButton: UIButton!
     
+    private var pricesContainer: UIView!
     private var pricesStack: UIStackView!
+    private var pricesNotAvailable: UILabel!
     
     override func loadView() {
         view = UIView()
@@ -148,14 +150,37 @@ class DetailViewController: UIViewController {
         addRemoveFavoriteButton.setTitle("Hi", for: .normal)
         favStack.addArrangedSubview(addRemoveFavoriteButton)
         
+        pricesContainer = UIView()
+        pricesContainer.translatesAutoresizingMaskIntoConstraints = false
+        pricesContainer.backgroundColor = .systemGray5
+        pricesContainer.layer.cornerCurve = .continuous
+        pricesContainer.layer.cornerRadius = 30
+        view.addSubview(pricesContainer)
+        
+        pricesContainer.topAnchor.constraint(equalTo: favStack.bottomAnchor, constant: 20).isActive = true
+        pricesContainer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
+        pricesContainer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
+        
+        pricesNotAvailable = UILabel()
+        pricesNotAvailable.translatesAutoresizingMaskIntoConstraints = false
+        pricesNotAvailable.font = .systemFont(ofSize: 16, weight: .regular)
+        pricesNotAvailable.textColor = .systemGray
+        pricesNotAvailable.text = "Prices are not available."
+        pricesNotAvailable.textAlignment = .center
+        pricesContainer.addSubview(pricesNotAvailable)
+        
+        pricesNotAvailable.centerYAnchor.constraint(equalTo: pricesContainer.centerYAnchor).isActive = true
+        pricesNotAvailable.centerXAnchor.constraint(equalTo: pricesContainer.centerXAnchor).isActive = true
+        
         // pricesStack contains intraday prices of the company.
         pricesStack = UIStackView()
         pricesStack.translatesAutoresizingMaskIntoConstraints = false
+        pricesStack.backgroundColor = .systemGray5
         pricesStack.axis = .vertical
         pricesStack.alignment = .center
         pricesStack.distribution = .equalSpacing
         pricesStack.spacing = 8
-        view.addSubview(pricesStack)
+        pricesContainer.addSubview(pricesStack)
         
         // Fill the pricesStack with views containing particular price values
         for _ in 1...7 {
@@ -166,9 +191,11 @@ class DetailViewController: UIViewController {
             psv.rightAnchor.constraint(equalTo: pricesStack.rightAnchor).isActive = true
         }
         
-        pricesStack.topAnchor.constraint(equalTo: favStack.bottomAnchor, constant: 20).isActive = true
-        pricesStack.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
-        pricesStack.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+        pricesStack.rightAnchor.constraint(equalTo: pricesContainer.rightAnchor, constant: -20).isActive = true
+        pricesStack.leftAnchor.constraint(equalTo: pricesContainer.leftAnchor, constant: 20).isActive = true
+        pricesStack.topAnchor.constraint(equalTo: pricesContainer.topAnchor, constant: 20).isActive = true
+        pricesStack.bottomAnchor.constraint(equalTo: pricesContainer.bottomAnchor, constant: -20).isActive = true
+        
     }
 
     override func viewDidLoad() {
@@ -219,6 +246,9 @@ extension DetailViewController {
         
         // Fill the price views
         if let day = company.today {
+            pricesStack.isHidden = false
+            pricesNotAvailable.isHidden = true
+            
             if let stack = pricesStack.arrangedSubviews[0] as? PriceStackView {
                 stack.set(price: day.current, for: "Price")
             }
@@ -240,6 +270,9 @@ extension DetailViewController {
             if let stack = pricesStack.arrangedSubviews[6] as? PriceStackView {
                 stack.set(price: day.previousClose, for: "Previous Close")
             }
+        } else {
+            pricesStack.isHidden = true
+            pricesNotAvailable.isHidden = false
         }
         
         // Sets the websiteButton state according to the availability of the URL.

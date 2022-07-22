@@ -110,8 +110,8 @@
 			children = (
 				03257471286E8CB0008DAF21 /* RootTabBar.swift */,
 				0358377728898C69001B8CBB /* CompaniesLists */,
-				03C6E5F72878511300184A1A /* Detail */,
 				038DA8C82885BDD000C8EF84 /* More */,
+				03C6E5F72878511300184A1A /* Detail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
