@@ -43,6 +43,12 @@ class PriceStackView: UIStackView {
     /// - Parameter description: A label.
     func set(price: Double, for description: String) {
         label.text = description
-        self.price.text = String(price)
+        
+        // Add percent sign if needed
+        if description == "Delta Percent" {
+            self.price.text = "\(price) %"
+        } else {
+            self.price.text = String(price)
+        }
     }
 }
