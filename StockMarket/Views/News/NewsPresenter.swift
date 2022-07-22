@@ -10,4 +10,6 @@ import Foundation
 /// A class for managing news data.
 class NewsPresenter {
     
+    /// A reference to the view.
+    weak var view: NewsViewController?
 }

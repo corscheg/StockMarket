@@ -9,11 +9,19 @@ import UIKit
 
 /// A class for displaying the latest news.
 class NewsViewController: UIViewController {
+    
+    /// A reference to the presenter.
+    var presenter: NewsPresenter!
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .systemGray6
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = "News"
     }
 
 }

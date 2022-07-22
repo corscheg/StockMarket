@@ -26,10 +26,12 @@ class RootTabBar: UITabBarController {
         
         var vcs: [UIViewController] = []
         
-        let vc0 = UIViewController()
-        vc0.view.backgroundColor = .systemRed
-        vc0.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
-        vcs.append(vc0)
+        let nvc = NewsViewController()
+        nvc.tabBarItem = UITabBarItem(title: "News", image: UIImage(systemName: "newspaper"), tag: 0)
+        nvc.presenter = NewsPresenter()
+        let nnc = UINavigationController(rootViewController: nvc)
+        nnc.navigationBar.prefersLargeTitles = true
+        vcs.append(nnc)
         
         // Initialize and append a Favorites Tab
         let fvc = CompaniesListViewController()
